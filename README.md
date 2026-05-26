@@ -289,10 +289,10 @@ Berdasarkan design Figma, buat sections berikut (sesuaikan dengan design yang di
 **Format Submission:**
 
 ```
-Nama: [Nama lengkap kamu]
-Repository: [GitHub repository URL]
-Deployment: [Live website URL]
-Notes: [Catatan tambahan jika ada - challenges, learning points, etc.]
+Nama: Afrizal
+Repository: https://github.com/WPH-Bootcamp/challenge-8-afrizal090477-max
+Deployment: https://challenge-8-afrizal090477-max.vercel.app
+Notes: Berhasil membenahi layout navigasi & footer mobile, integrasi form, serta sukses deployment menggunakan Vercel CLI untuk bypass permission organisasi.
 ```
 
 ### Checklist Sebelum Submit
