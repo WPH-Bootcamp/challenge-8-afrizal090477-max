@@ -1,128 +1,74 @@
+// src/types/index.ts
+import React from "react";
+
 /**
  * Type Definitions
  *
  * File ini berisi semua TypeScript interfaces dan types yang digunakan
  * di berbagai tempat dalam aplikasi.
- *
- * Best Practices:
- * - Gunakan PascalCase untuk interface names
- * - Export semua interfaces agar bisa digunakan di file lain
- * - Group related interfaces bersama
- * - Add comments untuk explain complex types
  */
 
 // ==========================================
 // UI Component Types
 // ==========================================
 
-/**
- * Button variant types
- * Gunakan ini untuk Button component
- */
 export type ButtonVariant = 'primary' | 'secondary' | 'outline';
+export type ButtonSize = 'sm' | 'md' | 'lg';
 
-/**
- * Example: Button Props
- * Uncomment dan sesuaikan dengan kebutuhan
- */
-// export interface ButtonProps {
-//   variant?: ButtonVariant;
-//   children: React.ReactNode;
-//   onClick?: () => void;
-//   className?: string;
-//   disabled?: boolean;
-// }
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  children: React.ReactNode;
+}
 
 // ==========================================
 // Section Data Types
 // ==========================================
 
 /**
- * TODO: Define interfaces untuk data yang digunakan di sections
- *
- * Contoh:
- * - ServiceItem untuk services section
- * - TeamMember untuk team section
- * - Testimonial untuk testimonials section
- * - dll.
+ * ServiceItem untuk services section
  */
+export interface ServiceItem {
+  id: string; // Menggunakan string agar lebih fleksibel untuk mock data id (e.g., 's1')
+  title: string;
+  description: string;
+  icon: 'code' | 'globe' | 'smartphone'; // Kita kunci tipe ikonnya sesuai komponen Figma
+}
 
 /**
- * Example: Service/Product Item
+ * Team Member untuk team section (Diadaptasi dari card Willy Nielsen di Figma)
  */
-// export interface ServiceItem {
-//   id: number;
-//   title: string;
-//   description: string;
-//   icon?: string;
-//   image?: string;
-// }
+export interface TeamMember {
+  id: string;
+  name: string;
+  role: string; // Kita gunakan role agar sinkron dengan sebutan PM / UI Designer
+  imageUrl: string;
+}
 
 /**
- * Example: Team Member
+ * Testimonial untuk testimonials section (Diadaptasi dari card Sindy Tan di Figma)
  */
-// export interface TeamMember {
-//   id: number;
-//   name: string;
-//   position: string;
-//   bio?: string;
-//   image: string;
-//   socialLinks?: {
-//     linkedin?: string;
-//     twitter?: string;
-//     github?: string;
-//   };
-// }
-
-/**
- * Example: Testimonial
- */
-// export interface Testimonial {
-//   id: number;
-//   name: string;
-//   position: string;
-//   company: string;
-//   message: string;
-//   avatar?: string;
-//   rating?: number;
-// }
+export interface TestimonialItem {
+  id: string;
+  name: string;
+  role: string;
+  company: string;
+  content: string; // Teks ulasan utama
+  avatarUrl: string;
+  rating: number; // Untuk looping jumlah bintang emas (1-5)
+}
 
 // ==========================================
-// Navigation Types
+// Navigation & Form Types
 // ==========================================
 
-/**
- * Navigation menu item
- */
-// export interface NavItem {
-//   label: string;
-//   href: string;
-//   external?: boolean;
-// }
+export interface NavItem {
+  label: string;
+  href: string;
+}
 
-// ==========================================
-// Form Types (if needed)
-// ==========================================
-
-/**
- * Contact form data
- */
-// export interface ContactFormData {
-//   name: string;
-//   email: string;
-//   message: string;
-// }
-
-// ==========================================
-// TODO: Add more types as needed!
-// ==========================================
-
-/**
- * Tips:
- * 1. Define types berdasarkan data yang kamu perlukan
- * 2. Lihat design Figma untuk understand data structure
- * 3. Make types reusable across components
- * 4. Use optional properties (?) untuk data yang tidak selalu ada
- * 5. Consider creating separate files jika types terlalu banyak
- *    Example: types/components.ts, types/data.ts, etc.
- */
+export interface ContactFormData {
+  name: string;
+  email: string;
+  message: string;
+}
