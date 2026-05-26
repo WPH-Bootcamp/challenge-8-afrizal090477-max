@@ -1,44 +1,87 @@
-/**
- * Main CSS File
- *
- * Tailwind CSS v4 - Using new @import syntax
- * Docs: https://tailwindcss.com/docs/installation/using-vite
- */
-
+/* src/index.css */
 @import "tailwindcss";
 
-/* Tell Tailwind where to scan for classes */
-@source "./**/*.{js,jsx,ts,tsx}";
-@source "../index.html";
-
-/**
- * Custom Global Styles
- *
- * Add your custom global styles here if needed
- * Prefer using Tailwind utilities in components
- */
-
-/* Smooth scrolling for anchor links */
-html {
-  scroll-behavior: smooth;
+/* 1. Pengaturan Token Desain Global & Tema Terang (Light Mode) */
+:root {
+  --color-brand-orange: #f97316; /* Warna Oranye khas Figma */
+  
+  /* Token Warna Latar Belakang (Light) */
+  --color-panel-bg: #ffffff;
+  --color-panel-border: #e2e8f0;
+  
+  /* Token Warna Teks (Light) */
+  --color-text-main: #0f172a;   /* Slate 900 (Gelap kontras di latar putih) */
+  --color-text-muted: #475569;  /* Slate 600 (Abu-abu tenang) */
 }
 
-/* Optional: Custom scrollbar styles */
-/* Uncomment if you want custom scrollbar
+/* 2. Mengganti @variant dengan Selector Kelas CSS Murni (.dark) */
+.dark {
+  --color-panel-bg: #0f172a;     /* Slate 900 (Latar belakang gelap premium) */
+  --color-panel-border: #1e293b; /* Slate 800 (Garis batas panel samar) */
+  
+  /* Token Warna Teks (Dark) */
+  --color-text-main: #f8fafc;   /* Slate 50 (Putih bersih agar terbaca tajam) */
+  --color-text-muted: #94a3b8;  /* Slate 400 (Abu-abu terang untuk deskripsi) */
+}
+
+/* 3. Base Styles (Memaksa Seluruh Elemen dan Tombol Patuh Pada Saklar) */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  html, body {
+    background-color: var(--color-panel-bg) !important;
+    color: var(--color-text-main) !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* ⚠️ PERBAIKAN UTAMA: Memaksa seluruh tombol mewarisi warna teks utama jika tidak diatur manual */
+  button, input, select, textarea {
+    color: inherit;
+  }
+}
+
+/* 4. Custom Scrollbar yang Adaptif terhadap Mode Gelap */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--color-panel-bg);
+  transition: background-color 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: var(--color-brand-orange);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #ea580c;
 }
-*/
+
+/* 5. Animasi Marquee Gulir Horizontal Tanpa Henti (Logo Cloud) */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  width: max-content;
+  animation: marquee 20s linear infinite;
+}
+
+/* Ganti bagian bawah src/index.css kamu menjadi kelas murni seperti ini */
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
