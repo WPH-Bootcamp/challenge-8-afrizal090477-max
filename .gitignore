@@ -33,3 +33,6 @@ claude.json
 .cursor/
 .aider*
 .continue/
+
+
+.vercel/
