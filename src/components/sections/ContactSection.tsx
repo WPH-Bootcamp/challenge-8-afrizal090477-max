@@ -70,7 +70,7 @@ const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="w-full bg-panel-bg border-b border-panel-border transition-colors duration-300 min-h-[956px] flex flex-col justify-center py-[80px]"
+      className="w-full bg-panel-bg transition-colors duration-300 min-h-[956px] flex flex-col justify-center py-[80px]"
     >
       <style>{`
         input:-webkit-autofill,
@@ -103,7 +103,6 @@ const ContactSection = () => {
 
           {/* Formulir utama dengan input fields dan pilihan services */}
           <div className="w-full max-w-[720px] min-h-[644px] flex flex-col gap-[40px]">
-            {/* noValidate dihapus agar fitur pengecekan bawaan HTML5 browser berfungsi normal */}
             <form onSubmit={handleSubmit} className="flex flex-col gap-[20px] w-full min-h-[556px]">
               {/* Name Input Field */}
               <div className="w-full h-auto md:h-[82px] flex flex-col gap-[6px]">

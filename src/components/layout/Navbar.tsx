@@ -23,7 +23,7 @@ const Navbar = () => {
   }, [isDark]);
 
   return (
-    <header className="sticky top-0 z-50 h-[84px] border-b border-panel-border bg-panel-bg/80 backdrop-blur-[40px] transition-colors duration-300">
+    <header className="sticky top-0 z-50 h-[84px] bg-panel-bg/80 backdrop-blur-[40px] transition-colors duration-300">
       <Container className="max-w-[1440px] px-6 md:px-[140px] h-full">
         {/* FLEX UTAMA: Menyusun tiga pilar utama (Logo, Navigasi, Interaksi) dengan penyesuaian responsif */}
         <div className="flex items-center justify-between h-full">

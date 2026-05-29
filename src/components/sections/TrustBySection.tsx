@@ -5,7 +5,7 @@ const LogoCloudSection = () => {
   const { title, logos } = logoCloudData;
 
   return (
-    <section className="overflow-hidden bg-panel-bg border-b border-panel-border transition-colors duration-300 w-full min-h-[236px] flex flex-col justify-center">
+    <section className="overflow-hidden bg-panel-bg transition-colors duration-300 w-full min-h-[236px] flex flex-col justify-center">
       <Container className="max-w-[1440px]">
         
         
@@ -15,7 +15,6 @@ const LogoCloudSection = () => {
           </h2>
         </div>
 
-        
         <div className="relative w-full overflow-hidden pt-10 pb-10 [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]">
           <div className="flex items-center gap-12 animate-marquee whitespace-nowrap">
             

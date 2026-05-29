@@ -52,7 +52,7 @@ const TestimonialsSection = () => {
   return (
     <section 
       id="testimonials" 
-      className="w-full bg-panel-bg border-b border-panel-border transition-colors duration-300 min-h-[723px] flex flex-col justify-center py-[80px] overflow-hidden"
+      className="w-full bg-panel-bg transition-colors duration-300 min-h-[723px] flex flex-col justify-center py-[80px] overflow-hidden"
     >
       <Container className="max-w-[1440px] px-4 md:px-8">
         <div className="flex flex-col gap-[80px] items-center w-full">
@@ -104,7 +104,7 @@ const TestimonialsSection = () => {
                         className="object-contain w-full h-full" 
                       />
                     </div>
-                    {/* Komentar Testimonial dengan penyesuaian warna teks untuk mode gelap dan terang */}
+                    {/* Komentar Testimonial */}
                     <div className="flex flex-col gap-[12px] mt-4">
                       <div className="w-[136px] h-[24px] flex items-center justify-center gap-[4px] mx-auto text-[#F3B64C] text-xl select-none leading-none">
                         {[...Array(item.stars)].map((_, i) => (

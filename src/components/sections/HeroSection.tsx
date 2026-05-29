@@ -35,7 +35,6 @@ const HeroSection = () => {
           <div className="text-center lg:text-left space-y-6 flex-1 min-w-full lg:min-w-[550px] z-20">
             <div className="max-w-[653px] flex flex-col gap-3 w-full mx-auto lg:mx-0">
               {/* Judul Utama */}
-              {/* 🎯 FIX UTAMA: Menghapus text-[#0A0D12] kaku dan menggantinya dengan text-neutral-900 / dark:text-white */}
               <h1
                 className="text-4xl sm:text-5xl lg:text-[56px] font-bold tracking-[-0.02em] text-[#0A0D12] leading-[1.15] whitespace-normal transition-colors duration-300"
                 style={{ color: isDarkMode ? "#FFFFFF" : "#0A0D12" }}

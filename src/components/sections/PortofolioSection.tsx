@@ -26,7 +26,7 @@ const PortofolioSection = () => {
   return (
     <section
       id="projects"
-      className="w-full bg-panel-bg border-b border-panel-border transition-colors duration-300 min-h-[772px] flex flex-col justify-center"
+      className="w-full bg-panel-bg transition-colors duration-300 min-h-[772px] flex flex-col justify-center"
     >
       <Container className="max-w-[1440px] px-6 py-16 md:px-12 lg:px-[140px] lg:py-[80px]">
         {/* SINKRONISASI UTAMA */}

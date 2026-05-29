@@ -6,7 +6,6 @@ const OurProcess = () => {
   const { title, subtitle, steps } = processData;
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-
   useEffect(() => {
     const checkDarkMode = () => {
       const isDark = document.documentElement.classList.contains("dark");
@@ -26,7 +25,7 @@ const OurProcess = () => {
   return (
     <section
       id="process"
-      className="w-full bg-panel-bg border-b border-panel-border transition-colors duration-300 min-h-[1099px] flex flex-col justify-center"
+      className="w-full bg-panel-bg transition-colors duration-300 min-h-[1099px] flex flex-col justify-center"
     >
       <Container className="max-w-[1440px] px-6 py-16 md:px-12 lg:px-[140px] lg:py-[80px]">
         {/* Pembungkus Konten Utama */}
@@ -45,7 +44,8 @@ const OurProcess = () => {
 
           {/* Pembungkus Utama Area Timeline */}
           <div className="relative w-full max-w-[1160px] flex flex-col gap-4">
-            <div className="absolute left-[24px] md:left-1/2 top-10 bottom-10 w-[1px] bg-[#717680] dark:bg-zinc-800 pointer-events-none z-0 md:-translate-x-1/2" />
+            <div className="absolute left-[24px] md:left-1/2 top-10 bottom-10 w-[1px] bg-zinc-100/30 dark:bg-zinc-100/30 pointer-events-none z-0 md:-translate-x-1/2" />
+            
             {/* SINKRONISASI GRID AREA */}
             <div className="relative z-10 w-full space-y-8 md:space-y-4">
               {steps.map((step, index) => {
@@ -59,10 +59,9 @@ const OurProcess = () => {
                     <div 
                       className={`w-full max-w-[532px] min-h-[116px] p-6 rounded-[16px] flex items-center justify-between gap-6 transition-all duration-300 hover:shadow-sm select-none group col-start-2 order-2
                         ${!isEven ? 'md:col-start-1 md:order-1 md:justify-self-end' : 'md:col-start-3 md:order-3 md:justify-self-start'}`}
-                      /// Koresi gaya latar belakang dan border untuk mendukung dark mode
                       style={{ 
                         backgroundColor: isDarkMode ? '#090B0F' : '#FAFAFA',
-                        border: isDarkMode ? 'none' : '1px solid #DEDCDC'
+                        border: isDarkMode ? 'none' : '1px solid #DEDCDC' 
                       }}
                     >
                       <div className="flex flex-col justify-center text-left">
@@ -84,13 +83,13 @@ const OurProcess = () => {
                       </div>
                     </div>
 
-                    {/* LINGKARAN PENANDA LANGKAH (BERISI ANGKA) - POSISI TETAP DI TENGAH GARIS */}
+                    {/* LINGKARAN PENANDA LANGKAH */}
                     <div className="z-20 flex items-center justify-center order-1 col-start-1 md:px-6 shrink-0 md:col-start-2 md:order-2">
                       <div className="h-12 w-12 rounded-full bg-[#FF623E] text-white font-bold text-base flex items-center justify-center shadow-md select-none">
                         {step.id}
                       </div>
                     </div>
-                    {/* AREA KOSONG SIMETRIS (HANYA UNTUK DESKTOP, DISSEMBUNYIKAN DI MOBILE) */}
+                    {/* AREA KOSONG SIMETRIS */}
                     <div className={`hidden md:block w-full max-w-[532px] ${!isEven ? 'md:col-start-3 md:order-3' : 'md:col-start-1 md:order-1'}`} />
 
                   </div>
