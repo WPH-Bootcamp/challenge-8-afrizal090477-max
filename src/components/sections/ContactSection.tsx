@@ -48,11 +48,17 @@ const ContactSection = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    //Jika input email mengandung kata 'error' atau 'fail', pop-up GAGAL akan muncul
-    if (email.toLowerCase().includes("error") || email.toLowerCase().includes("fail")) {
+    // 1. Cek validasi minimal memilih 1 checkbox service
+    const hasSelectedService = selectedServices.length > 0;
+
+    // 2. Ambil kondisi simulasi kata 'error' atau 'fail' pada input email
+    const isSimulatedError = email.toLowerCase().includes("error") || email.toLowerCase().includes("fail");
+
+    // Pop-up GAGAL jika mengandung teks error/fail ATAU lupa memilih checkbox
+    if (isSimulatedError || !hasSelectedService) {
       setNotificationType("failed");
     } else {
-      // Jika email normal, tetap memicu pop-up SUKSES
+      // Jika semua data diisi dengan benar dan aman, pop-up SUKSES
       setNotificationType("success");
       setName("");
       setEmail("");
@@ -97,6 +103,7 @@ const ContactSection = () => {
 
           {/* Formulir utama dengan input fields dan pilihan services */}
           <div className="w-full max-w-[720px] min-h-[644px] flex flex-col gap-[40px]">
+            {/* noValidate dihapus agar fitur pengecekan bawaan HTML5 browser berfungsi normal */}
             <form onSubmit={handleSubmit} className="flex flex-col gap-[20px] w-full min-h-[556px]">
               {/* Name Input Field */}
               <div className="w-full h-auto md:h-[82px] flex flex-col gap-[6px]">
@@ -156,7 +163,6 @@ const ContactSection = () => {
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Enter your message"
                   className="w-full h-[134px] p-4 rounded-xl text-md font-medium placeholder-[#717680] focus:outline-none focus:border-[#FF623E] resize-none"
-                  // 🎯 FIX UTAMA MESSAGE: Mengunci warna ketikan text area pesan
                   style={{
                     backgroundColor: isDarkMode ? '#090B0F' : '#FFFFFF',
                     color: isDarkMode ? '#FFFFFF' : '#000000',
