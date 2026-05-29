@@ -7,38 +7,49 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    // ==========================================
+    // GLOBAL CONTAINER CONFIGURATION (Sesuai Figma 1440px)
+    // ==========================================
+    container: {
+      center: true, // Auto center (mx-auto)
+      screens: {
+        sm: '100%',     // Full width di HP
+        md: '100%',     // Full width di Tablet kecil
+        lg: '100%',     // Full width di Tablet gede / Laptop kecil
+        xl: '1440px',   // Mengunci lebar maksimal persis sesuai Figma lo di layar lebar
+        '2xl': '1440px',
+      },
+      padding: {
+        DEFAULT: '1rem',   // Padding 16px kiri-kanan di layar HP (px-4)
+        sm: '2rem',        // Padding 32px kiri-kanan di layar Tablet (px-8)
+        lg: '4rem',        // Padding 64px kiri-kanan di layar Desktop/Laptop (px-16)
+        xl: '5rem',        // Padding 80px kiri-kanan di monitor ultra-wide (px-20)
+      },
+    },
+
     extend: {
-      // ==========================================
-      // CUSTOM COLORS 
-      // ==========================================
       colors: {
-        // Warna oranye utama & turunannya  
         brand: {
           50: '#FFF5F2',
           100: '#FFE6DE',
           200: '#FFCEB8',
           300: '#FFAC87',
           400: '#FF7E4D',
-          500: '#FF623E', // Primary Main Brand Color
+          500: '#FF623E',
           600: '#E64B27',
           700: '#B83416',
           800: '#8A220B',
           900: '#5C1203',
         },
-        // Warna netral untuk background dan panel (Light/Dark mode)
         neutral: {
-          950: '#090B0F', // buat dark:bg-zinc-950 atau bg-neutral-950 
+          950: '#090B0F',
         },
-        // Shortcut warna teks & panel penunjang hero
         textMain: '#0A0D12',
         textMuted: '#717680',
       },
 
-      // ==========================================
-      // TYPOGRAPHY 
-      // ==========================================
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Quicksand', 'sans-serif'],
       },
 
       fontSize: {
@@ -48,17 +59,6 @@ export default {
       borderRadius: {
         'brand-lg': '16px',
         'brand-xl': '24px',
-      },
-
-      container: {
-        center: true,
-        padding: {
-          DEFAULT: '1rem',
-          sm: '2rem',
-          lg: '4rem',
-          xl: '5rem',
-          '2xl': '6rem',
-        },
       },
     },
   },
