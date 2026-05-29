@@ -18,7 +18,7 @@ export const companyInfo: CompanyInfo = {
   footerLogoText: "Your Logo",
   copyright: "© 2026 Tech Logo Corp. All rights reserved.",
   social: {
-    facebook: "#", 
+    facebook: "https://facebook.com/", 
     instagram: "https://www.instagram.com/afrizal_5758?igsh=MmplazlqeWFncXg4",
     linkedin: "https://www.linkedin.com/in/afrizal-900410408/",
     tiktok: "https://www.tiktok.com/@afrizal_5758?_r=1&_t=ZS-96ergxThKNE"

@@ -34,5 +34,9 @@ claude.json
 .aider*
 .continue/
 
-
+# Deploy
 .vercel/
+
+# Template 
+.env.example
+tailwind.config.template.js

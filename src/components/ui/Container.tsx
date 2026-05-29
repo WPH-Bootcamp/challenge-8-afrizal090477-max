@@ -1,4 +1,3 @@
-
 interface ContainerProps {
   children: React.ReactNode;
   className?: string;
@@ -8,8 +7,8 @@ const Container = ({
   children,
   className = "",
 }: ContainerProps) => {
-  // Base styles responsif bawaan template untuk pembungkus halaman
-  const baseStyles = "mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8";
+  // Class 'container' otomatis mengambil rule 1440px & padding responsif dari config di atas
+  const baseStyles = "container w-full";
 
   const containerClasses = `
     ${baseStyles}
