@@ -6,7 +6,6 @@ const AboutSection = () => {
   const { title, description, stats } = aboutData;
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  //Memantau perubahan class 'dark' di root HTML
   useEffect(() => {
     const checkDarkMode = () => {
       const isDark = document.documentElement.classList.contains("dark");
@@ -26,43 +25,50 @@ const AboutSection = () => {
   return (
     <section
       id="about"
+      // 🎯 FIGMA SPEC: min-h-[598px] dan padding atas-bawah 80px (lg:py-[80px])
       className="w-full bg-panel-bg transition-colors duration-300 min-h-[598px] flex flex-col justify-center"
     >
+      {/* 🎯 FIGMA SPEC: Padding kiri-kanan desktop 140px agar sejajar tegak lurus dari Hero sampai Atas */}
       <Container className="max-w-[1440px] px-6 py-16 md:px-12 lg:px-[140px] lg:py-[80px]">
-        {/* Pembungkus utama dengan judul, deskripsi, dan grid statistik */}
+        
+        {/* Pembungkus utama (gap: 64px) */}
         <div className="flex flex-col gap-[64px] items-center w-full">
-          {/* Header dengan judul dan deskripsi yang responsif */}
-          <div className="max-w-[1160px] w-full text-center space-y-4">
+          
+          {/* Header dengan judul dan deskripsi (🎯 FIGMA SPEC: gap-[11px]) */}
+          <div className="max-w-[1160px] w-full text-center flex flex-col gap-[11px]">
             <h2 
-              className="text-3xl md:text-4xl lg:text-[44px] font-bold tracking-[-0.02em] text-[#0A0D12] leading-[1.2] transition-colors duration-300"
+              className="text-3xl md:text-4xl lg:text-[44px] font-bold tracking-[-0.02em] leading-tight transition-colors duration-300"
               style={{ color: isDarkMode ? '#FFFFFF' : '#0A0D12' }}
             >
               {title}
             </h2>
-            {/* Deskripsi */}
-            <p className="text-base md:text-lg font-medium text-[#717680] dark:text-zinc-400 max-w-[800px] mx-auto leading-relaxed">
+            {/* Deskripsi (font-weight: 500, text-lg) */}
+            <p className="text-base md:text-lg font-medium text-[#717680] dark:text-[#A4A7AE] max-w-[800px] mx-auto leading-relaxed transition-colors duration-300">
               {description}
             </p>
           </div>
 
-          {/* Grid Statistik lingkaran dengan angka dan label */}
+          {/* Grid Statistik lingkaran (🎯 FIGMA SPEC: gap-[20px] di desktop) */}
           <div className="w-full max-w-[1160px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-[20px] justify-items-center">
             {stats.map((stat, index) => (
               <div
                 key={`${stat.label}-${index}`}
-                className="w-[275px] h-[275px] rounded-full flex flex-col items-center justify-center p-4 gap-[6px] transition-all duration-300 transform hover:scale-105 select-none shadow-sm group"
+                // 🎯 FIGMA SPEC: Lingkaran sempurna 275px x 275px, border-radius: 1000px, padding: 16px, gap: 6px
+                className="w-[275px] h-[275px] rounded-full flex flex-col items-center justify-center p-[16px] gap-[6px] transition-all duration-300 transform hover:scale-[1.03] select-none shadow-sm group"
                 style={{ 
-                  backgroundColor: isDarkMode ? '#090B0F' : '#FAFAFA',
-                  border: isDarkMode ? 'none' : '1px solid #DEDCDC'
+                  backgroundColor: isDarkMode ? '#0A0D12' : '#FAFAFA',
+                  border: isDarkMode ? '1px solid #181D27' : '1px solid #DEDCDC'
                 }}
               >
-                {/* angka stat */}
+                {/* Angka stat (display-2xl, font-weight: 700, warna oranye #FF623E) */}
                 <span className="text-4xl lg:text-[48px] font-bold tracking-[-0.02em] text-[#FF623E] leading-none">
                   {stat.value}
                 </span>
+                
+                {/* Label teks (🎯 FIGMA SPEC: text-xl (20px), font-weight: 600, SemiBold) */}
                 <p 
-                  className="text-base md:text-lg lg:text-xl font-semibold text-[#0A0D12] text-center max-w-[200px] leading-tight transition-colors duration-300"
-                  style={{ color: isDarkMode ? '#FFFFFF' : '#0A0D12' }}
+                  className="text-base md:text-lg lg:text-[20px] font-semibold text-center max-w-[243px] leading-snug transition-colors duration-300 px-2"
+                  style={{ color: isDarkMode ? '#FDFDFD' : '#0A0D12' }}
                 >
                   {stat.label}
                 </p>

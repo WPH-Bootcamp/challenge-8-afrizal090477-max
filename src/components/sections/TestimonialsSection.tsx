@@ -52,25 +52,31 @@ const TestimonialsSection = () => {
   return (
     <section 
       id="testimonials" 
+      // 🎯 SINKRONISASI MAKRO: Tinggi seksi pas min-h-[723px] dengan padding vertikal py-[80px]
       className="w-full bg-panel-bg transition-colors duration-300 min-h-[723px] flex flex-col justify-center py-[80px] overflow-hidden"
     >
-      <Container className="max-w-[1440px] px-4 md:px-8">
+      <Container className="max-w-[1440px] px-6 md:px-12 lg:px-[140px]">
+        {/* 🎯 SINKRONISASI MAKRO: gap-[80px] antara header judul ke area track slider */}
         <div className="flex flex-col gap-[80px] items-center w-full">
-          <div className="w-full max-w-[1440px] text-center flex flex-col gap-[11px] h-[99px]">
+          
+          {/* Header area (gap: 11px, height: 99px) */}
+          <div className="w-full max-w-[1160px] text-center flex flex-col gap-[11px] h-[99px] shrink-0">
             <h2 
               className="text-3xl md:text-4xl lg:text-[44px] font-bold tracking-[-0.02em] text-[#0A0D12] h-[56px] flex items-center justify-center transition-colors duration-300"
               style={{ color: isDarkMode ? '#FFFFFF' : '#0A0D12' }}
             >
               What Partners Say About Working With Us
             </h2>
-            <p className="text-base md:text-lg font-medium text-[#717680] dark:text-zinc-400 h-[32px] flex items-center justify-center">
+            <p className="text-base md:text-lg font-medium text-[#717680] dark:text-[#A4A7AE] h-[32px] flex items-center justify-center transition-colors duration-300">
               Trusted voices. Real experiences. Proven results.
             </p>
           </div>
 
-          <div className="w-full max-w-[1440px] flex justify-center items-center pt-6 overflow-visible">
+          {/* Area Slider Track */}
+          <div className="w-full max-w-[1160px] flex justify-center items-center overflow-visible">
             
-            <div className="flex flex-col md:flex-row items-center justify-center gap-[20px] md:gap-[40px] w-full md:w-auto">
+            {/* Jarak gap horizontal antar card diset ke gap-[20px] sesuai blueprint */}
+            <div className="flex flex-col md:flex-row items-center justify-center gap-[20px] w-full md:w-auto">
               {data.map((item, index) => {
                 const isActive = index === activeIndex;
 
@@ -78,6 +84,7 @@ const TestimonialsSection = () => {
                   <div
                     key={item.id}
                     onClick={() => handleCardClick(item.id)}
+                    // 🎯 SINKRONISASI MAKRO CARD: lebar mutlak desktop 594px, tinggi 292px, radius 16px, padding top/left/right: 24px, bottom: 48px, gap: 24px
                     className={`relative rounded-[16px] px-[24px] pt-[24px] pb-[48px] flex-col justify-between cursor-pointer transition-all duration-500 min-h-[292px] gap-[24px] select-none shrink-0 w-full md:w-[594px]
                       ${isActive 
                         ? "flex scale-100 opacity-100 shadow-xl z-10" 
@@ -85,18 +92,20 @@ const TestimonialsSection = () => {
                       }
                     `}
                     style={{
-                      backgroundColor: isDarkMode ? '#090B0F' : '#FAFAFA',
-                      borderWidth: isActive ? '1px' : '0px',
-                      borderStyle: isActive ? 'solid' : 'none',
+                      // 🎯 FIGMA SPEC: Warna background dark mode diubah ke #0A0D12 murni
+                      backgroundColor: isDarkMode ? '#0A0D12' : '#FAFAFA',
+                      borderWidth: '1px',
+                      borderStyle: 'solid',
+                      // 🎯 FIGMA SPEC: Gradasi warna border disesuaikan presisi dari #FF6C37 ke #181D27
                       borderImageSource: isActive 
                         ? (isDarkMode 
-                            ? 'linear-gradient(116.18deg, #FF6C37 -22.52%, #090B0F 33.35%)' 
+                            ? 'linear-gradient(116.18deg, #FF6C37 -22.52%, #181D27 33.35%)' 
                             : 'linear-gradient(116.18deg, #FF6C37 -22.52%, #DEDCDC 33.35%)')
-                        : undefined,
-                      borderImageSlice: isActive ? 1 : undefined,
+                        : (isDarkMode ? 'linear-gradient(to right, #181D27, #181D27)' : 'linear-gradient(to right, #DEDCDC, #DEDCDC)'),
+                      borderImageSlice: 1,
                     }}
                   >
-                    {/* Ikon Kutipan dengan posisi absolut di atas kartu testimonial */}
+                    {/* Ikon Kutipan */}
                     <div className="absolute -top-[23px] left-[40px] w-[63.33px] h-[46.66px] pointer-events-none">
                       <img 
                         src={quoteIcon} 
@@ -104,6 +113,7 @@ const TestimonialsSection = () => {
                         className="object-contain w-full h-full" 
                       />
                     </div>
+
                     {/* Komentar Testimonial */}
                     <div className="flex flex-col gap-[12px] mt-4">
                       <div className="w-[136px] h-[24px] flex items-center justify-center gap-[4px] mx-auto text-[#F3B64C] text-xl select-none leading-none">
@@ -111,20 +121,20 @@ const TestimonialsSection = () => {
                           <span key={i}>★</span>
                         ))}
                       </div>
-                    {/* Komentar Testimonial dengan penyesuaian warna teks untuk mode gelap dan terang */}
                       <div className="w-full h-auto min-h-[96px] flex items-center justify-center mx-auto">
                         <p 
-                          className="text-base md:text-md font-semibold text-center leading-relaxed text-[#0A0D12] transition-colors duration-300"
+                          className="text-base md:text-[16px] font-semibold text-center leading-relaxed transition-colors duration-300"
                           style={{ color: isDarkMode ? '#FFFFFF' : '#0A0D12' }}
                         >
-                          {item.comment}
+                          "{item.comment}"
                         </p>
                       </div>
                     </div>
-                    {/* Avatar dengan efek border dan skala saat aktif, serta penyesuaian warna border untuk mode gelap dan terang */}
+
+                    {/* Identitas Partner */}
                     <div className="flex flex-col justify-center mt-2 text-center">
                       <h4 
-                        className="text-base md:text-lg font-semibold text-[#0A0D12] transition-colors duration-300"
+                        className="text-base font-semibold transition-colors duration-300 md:text-lg"
                         style={{ color: isDarkMode ? '#FFFFFF' : '#0A0D12' }}
                       >
                         {item.name}
@@ -135,7 +145,8 @@ const TestimonialsSection = () => {
                         {item.role} at {item.company}
                       </p>
                     </div>
-                    {/* Avatar dengan efek border dan skala saat aktif, serta penyesuaian warna border untuk mode gelap dan terang */}
+
+                    {/* Avatar lingkaran */}
                     <div className="absolute -bottom-[37.5px] left-1/2 -translate-x-1/2 w-[75px] h-[75px]">
                       <img
                         src={item.avatar}
@@ -157,6 +168,7 @@ const TestimonialsSection = () => {
             </div>
           </div>
 
+          {/* Navigasi Titik Bawah */}
           <div className="flex justify-center items-center gap-[6px] mt-8">
             {originalTestimonials.map((item, index) => {
               const isDotActive = data[1].id === item.id;

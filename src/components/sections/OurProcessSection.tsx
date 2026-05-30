@@ -25,12 +25,17 @@ const OurProcess = () => {
   return (
     <section
       id="process"
+      // 🎯 SINKRONISASI MAKRO: Tinggi seksi dikunci presisi di min-h-[1099px]
       className="w-full bg-panel-bg transition-colors duration-300 min-h-[1099px] flex flex-col justify-center"
     >
+      {/* 🎯 SINKRONISASI MAKRO: Padding desktop dikunci padding-top/bottom: 80px, padding-left/right: 140px */}
       <Container className="max-w-[1440px] px-6 py-16 md:px-12 lg:px-[140px] lg:py-[80px]">
-        {/* Pembungkus Konten Utama */}
+        
+        {/* Pembungkus Konten Utama (gap: 64px) */}
         <div className="flex flex-col gap-[64px] items-center w-full">
-          <div className="max-w-[1160px] w-full text-center space-y-4">
+          
+          {/* Header area (🎯 SINKRONISASI MAKRO: gap-[11px] antara judul & subtitle) */}
+          <div className="max-w-[1160px] w-full text-center flex flex-col gap-[11px]">
             <h2 
               className="text-3xl md:text-4xl lg:text-[44px] font-bold tracking-[-0.02em] text-[#0A0D12] leading-tight transition-colors duration-300"
               style={{ color: isDarkMode ? '#FFFFFF' : '#0A0D12' }}
@@ -46,8 +51,8 @@ const OurProcess = () => {
           <div className="relative w-full max-w-[1160px] flex flex-col gap-4">
             <div className="absolute left-[24px] md:left-1/2 top-10 bottom-10 w-[1px] bg-zinc-100/30 dark:bg-zinc-100/30 pointer-events-none z-0 md:-translate-x-1/2" />
             
-            {/* SINKRONISASI GRID AREA */}
-            <div className="relative z-10 w-full space-y-8 md:space-y-4">
+            {/* 🎯 SINKRONISASI MAKRO: Jarak antar baris grid steps dikunci pas gap-[16px] (space-y-4) */}
+            <div className="relative z-10 w-full space-y-[16px]">
               {steps.map((step, index) => {
                 const isEven = index % 2 === 1;
 
@@ -65,7 +70,6 @@ const OurProcess = () => {
                       }}
                     >
                       <div className="flex flex-col justify-center text-left">
-                        {/* Judul dan Deskripsi Langkah */}
                         <h3 
                           className="text-lg lg:text-xl font-bold text-[#0A0D12] transition-colors duration-300"
                           style={{ color: isDarkMode ? '#FFFFFF' : '#0A0D12' }}

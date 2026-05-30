@@ -25,13 +25,16 @@ const ServicesSection = () => {
   return (
     <section
       id="services"
+      // 🎯 SINKRONISASI MAKRO: Tinggi seksi dikunci presisi di min-h-[949px]
       className="w-full bg-panel-bg transition-colors duration-300 min-h-[949px] flex flex-col justify-center"
     >
+      {/* 🎯 SINKRONISASI MAKRO: Padding desktop dikunci padding-top/bottom: 80px, padding-left/right: 140px */}
       <Container className="max-w-[1440px] px-6 py-16 md:px-12 lg:px-[140px] lg:py-[80px]">
-        {/* Kontainer utama dengan judul, deskripsi, dan grid layanan */}
+        {/* Pembungkus utama dengan judul, deskripsi, dan grid layanan (gap: 64px) */}
         <div className="flex flex-col gap-[64px] items-center w-full">
-          {/* Judul dan Deskripsi Layanan */}
-          <div className="max-w-[1160px] w-full text-center space-y-4">
+          
+          {/* Judul dan Deskripsi Layanan (🎯 SINKRONISASI MAKRO: gap-[11px] antara judul & subtitle) */}
+          <div className="max-w-[1160px] w-full text-center flex flex-col gap-[11px]">
             <h2 
               className="text-3xl md:text-4xl lg:text-[44px] font-bold tracking-[-0.02em] text-[#0A0D12] leading-tight transition-colors duration-300"
               style={{ color: isDarkMode ? '#FFFFFF' : '#0A0D12' }}
@@ -43,8 +46,8 @@ const ServicesSection = () => {
             </p>
           </div>
 
-          {/* Grid card Layanan */}
-          <div className="w-full max-w-[1160px] grid gap-x-[20px] gap-y-[40px] grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10">
+          {/* Grid card Layanan (🎯 SINKRONISASI MAKRO: Mengunci tinggi area grid h-[626px] & jarak gap vertikal 40px) */}
+          <div className="w-full max-w-[1160px] lg:min-h-[626px] grid gap-x-[20px] gap-y-[40px] grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
               <div
                 key={service.id}

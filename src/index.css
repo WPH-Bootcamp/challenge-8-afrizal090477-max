@@ -1,7 +1,41 @@
-/* src/index.css */
+/* 🎯 1. IMPORT SAKRAL: Ambil font QUICKSAND asli dari Google Fonts di baris paling atas */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
-/* 1. Pengaturan Token Desain Global & Tema Terang (Light Mode) */
+/* 🎯 2. DEKLARASI TEMA UTAMA TAILWIND V4 */
+:root {
+  /* ─── INJEKSI FONT FAMILY QUICKSAND ─── */
+  --font-sans: "Quicksand", system-ui, sans-serif;
+  --font-display: "Quicksand", system-ui, sans-serif;
+  --font-body: "Quicksand", system-ui, sans-serif;
+
+  /* ─── TOKEN WARNA BRAND FIGMA ASSIGNMENT 8 ─── */
+  --color-brand-50: #FFF5F2;
+  --color-brand-100: #FFE6DE;
+  --color-brand-200: #FFCEB8;
+  --color-brand-300: #FFAC87;
+  --color-brand-400: #FF7E4D;
+  --color-brand-500: #FF623E;
+  --color-brand-600: #E64B27;
+  --color-brand-700: #B83416;
+  --color-brand-800: #8A220B;
+  --color-brand-900: #5C1203;
+  
+  --color-neutral-950: #090B0F;
+  --color-textMain: #0A0D12;
+  --color-textMuted: #717680;
+
+  /* ─── BORDER RADIUS KUSTOM ─── */
+  --radius-brand-lg: 16px;
+  --radius-brand-xl: 24px;
+
+  /* ─── TYPOGRAPHY CONFIG: DISPLAY HERO (56px) ─── */
+  --text-display-hero: 56px;
+  --text-display-hero--line-height: 1.15;
+  --text-display-hero--letter-spacing: -0.02em;
+}
+
+/* 3. Pengaturan Token Desain Global & Tema Terang (Light Mode) */
 :root {
   --color-brand-orange: #f97316; /* Warna Oranye khas Figma */
   
@@ -14,7 +48,7 @@
   --color-text-muted: #475569;  /* Slate 600 (Abu-abu tenang) */
 }
 
-/* 2. Mengganti @variant dengan Selector Kelas CSS Murni (.dark) */
+/* 4. Mengganti @variant dengan Selector Kelas CSS Murni (.dark) */
 .dark {
   --color-panel-bg: #0f172a;     /* Slate 900 (Latar belakang gelap premium) */
   --color-panel-border: #1e293b; /* Slate 800 (Garis batas panel samar) */
@@ -24,7 +58,7 @@
   --color-text-muted: #94a3b8;  /* Slate 400 (Abu-abu terang untuk deskripsi) */
 }
 
-/* 3. Base Styles (Memaksa Seluruh Elemen dan Tombol Patuh Pada Saklar) */
+/* 5. Base Styles (Memaksa Seluruh Elemen dan Tombol Patuh Pada Saklar) */
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -34,15 +68,18 @@
     background-color: var(--color-panel-bg) !important;
     color: var(--color-text-main) !important;
     transition: background-color 0.3s ease, color 0.3s ease;
+    /* Mengunci font global fallback agar seluruh halaman otomatis memancarkan Quicksand */
+    font-family: "Quicksand", system-ui, sans-serif;
   }
 
-  /* ⚠️ PERBAIKAN UTAMA: Memaksa seluruh tombol mewarisi warna teks utama jika tidak diatur manual */
+  /* PERBAIKAN UTAMA: Memaksa seluruh tombol mewarisi warna teks utama jika tidak diatur manual */
   button, input, select, textarea {
     color: inherit;
+    font-family: inherit;
   }
 }
 
-/* 4. Custom Scrollbar yang Adaptif terhadap Mode Gelap */
+/* 6. Custom Scrollbar yang Adaptif terhadap Mode Gelap */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -61,7 +98,7 @@
   background: #ea580c;
 }
 
-/* 5. Animasi Marquee Gulir Horizontal Tanpa Henti (Logo Cloud) */
+/* 7. Animasi Marquee Gulir Horizontal Tanpa Henti (Logo Cloud) */
 @keyframes marquee {
   from {
     transform: translateX(0);
@@ -76,7 +113,7 @@
   animation: marquee 20s linear infinite;
 }
 
-/* Ganti bagian bawah src/index.css kamu menjadi kelas murni seperti ini */
+/* Kelas murni efek animasi fade-in */
 .animate-fadeIn {
   animation: fadeIn 0.3s ease-out forwards;
 }

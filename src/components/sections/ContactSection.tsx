@@ -70,6 +70,7 @@ const ContactSection = () => {
   return (
     <section
       id="contact"
+      // 🎯 SINKRONISASI MAKRO: min-h-[956px] dengan padding vertikal 80px (py-[80px])
       className="w-full bg-panel-bg transition-colors duration-300 min-h-[956px] flex flex-col justify-center py-[80px]"
     >
       <style>{`
@@ -80,30 +81,34 @@ const ContactSection = () => {
         textarea:-webkit-autofill:hover,
         textarea:-webkit-autofill:focus {
           -webkit-text-fill-color: ${isDarkMode ? '#FFFFFF' : '#000000'} !important;
-          -webkit-box-shadow: 0 0 0px 1000px ${isDarkMode ? '#090B0F' : '#FFFFFF'} inset !important;
+          -webkit-box-shadow: 0 0 0px 1000px ${isDarkMode ? '#0A0D12' : '#FFFFFF'} inset !important;
           transition: background-color 5000s ease-in-out 0s;
         }
       `}</style>
 
+      {/* 🎯 SINKRONISASI MAKRO: Padding kiri-kanan mutlak dikunci 140px desktop (lg:px-[140px]) */}
       <Container className="max-w-[1440px] px-6 md:px-12 lg:px-[140px]">
-        {/* SINKRONISASI UTAMA */}
-        <div className="flex flex-col gap-[64px] items-center w-full">
-          {/* Judul dan Deskripsi Kontak */}
-          <div className="w-full max-w-[720px] h-auto md:h-[104px] text-center flex flex-col gap-4">
+        
+        {/* Pembungkus Utama Kontainer Form (🎯 FIGMA SPEC: lebar 720px, tinggi 796px, gap: 48px) */}
+        <div className="flex flex-col gap-[48px] items-center w-full max-w-[720px] mx-auto lg:h-[796px]">
+          
+          {/* Judul dan Deskripsi Kontak (height: 104px) */}
+          <div className="w-full text-center flex flex-col gap-4 h-[104px] shrink-0">
             <h2 
               className="text-3xl md:text-4xl lg:text-[44px] font-bold tracking-[-0.02em] text-[#0A0D12] leading-none transition-colors duration-300"
               style={{ color: isDarkMode ? '#FFFFFF' : '#0A0D12' }}
             >
               {title}
             </h2>
-            <p className="text-base md:text-lg font-medium text-[#717680] dark:text-zinc-400 leading-normal">
+            <p className="text-base md:text-lg font-medium text-[#717680] dark:text-[#A4A7AE] leading-normal transition-colors duration-300">
               {subtitle}
             </p>
           </div>
 
-          {/* Formulir utama dengan input fields dan pilihan services */}
-          <div className="w-full max-w-[720px] min-h-[644px] flex flex-col gap-[40px]">
+          {/* Formulir utama dengan input fields (min-h: 644px, gap: 40px) */}
+          <div className="w-full min-h-[644px] flex flex-col gap-[40px]">
             <form onSubmit={handleSubmit} className="flex flex-col gap-[20px] w-full min-h-[556px]">
+              
               {/* Name Input Field */}
               <div className="w-full h-auto md:h-[82px] flex flex-col gap-[6px]">
                 <label 
@@ -118,14 +123,15 @@ const ContactSection = () => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Enter your name"
-                  className="w-full h-[48px] px-4 rounded-xl text-md font-medium placeholder-[#717680] focus:outline-none focus:border-[#FF623E]"
+                  className="w-full h-[48px] px-4 rounded-xl text-md font-medium placeholder-[#717680] dark:placeholder-zinc-500 focus:outline-none focus:border-[#FF623E] transition-colors duration-300"
                   style={{
-                    backgroundColor: isDarkMode ? '#090B0F' : '#FFFFFF',
+                    backgroundColor: isDarkMode ? '#0A0D12' : '#FFFFFF',
                     color: isDarkMode ? '#FFFFFF' : '#000000',
-                    border: isDarkMode ? 'none' : '1px solid #DFDFDF'
+                    border: isDarkMode ? '1px solid #181D27' : '1px solid #DFDFDF'
                   }}
                 />
               </div>
+
               {/* Email Input Field */}
               <div className="w-full h-auto md:h-[82px] flex flex-col gap-[6px]">
                 <label 
@@ -140,14 +146,15 @@ const ContactSection = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
-                  className="w-full h-[48px] px-4 rounded-xl text-md font-medium placeholder-[#717680] focus:outline-none focus:border-[#FF623E]"
+                  className="w-full h-[48px] px-4 rounded-xl text-md font-medium placeholder-[#717680] dark:placeholder-zinc-500 focus:outline-none focus:border-[#FF623E] transition-colors duration-300"
                   style={{
-                    backgroundColor: isDarkMode ? '#090B0F' : '#FFFFFF',
+                    backgroundColor: isDarkMode ? '#0A0D12' : '#FFFFFF',
                     color: isDarkMode ? '#FFFFFF' : '#000000',
-                    border: isDarkMode ? 'none' : '1px solid #DFDFDF'
+                    border: isDarkMode ? '1px solid #181D27' : '1px solid #DFDFDF'
                   }}
                 />
               </div>
+
               {/* MESSAGE TEXTAREA */}
               <div className="w-full h-auto md:h-[168px] flex flex-col gap-[6px]">
                 <label 
@@ -161,11 +168,11 @@ const ContactSection = () => {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Enter your message"
-                  className="w-full h-[134px] p-4 rounded-xl text-md font-medium placeholder-[#717680] focus:outline-none focus:border-[#FF623E] resize-none"
+                  className="w-full h-[134px] p-4 rounded-xl text-md font-medium placeholder-[#717680] dark:placeholder-zinc-500 focus:outline-none focus:border-[#FF623E] resize-none transition-colors duration-300"
                   style={{
-                    backgroundColor: isDarkMode ? '#090B0F' : '#FFFFFF',
+                    backgroundColor: isDarkMode ? '#0A0D12' : '#FFFFFF',
                     color: isDarkMode ? '#FFFFFF' : '#000000',
-                    border: isDarkMode ? 'none' : '1px solid #DFDFDF'
+                    border: isDarkMode ? '1px solid #181D27' : '1px solid #DFDFDF'
                   }}
                 />
               </div>
@@ -195,8 +202,8 @@ const ContactSection = () => {
                         <div 
                           className="h-[20px] w-[20px] rounded-[4px] flex items-center justify-center transition-all duration-200 shrink-0 text-white"
                           style={{
-                            backgroundColor: isChecked ? '#FF623E' : (isDarkMode ? '#090B0F' : '#FFFFFF'),
-                            border: isChecked ? 'none' : (isDarkMode ? 'none' : '1px solid #DFDFDF')
+                            backgroundColor: isChecked ? '#FF623E' : (isDarkMode ? '#0A0D12' : '#FFFFFF'),
+                            border: isChecked ? 'none' : (isDarkMode ? '1px solid #181D27' : '1px solid #DFDFDF')
                           }}
                         >
                           {isChecked && (
@@ -222,12 +229,12 @@ const ContactSection = () => {
                 </div>
               </div>
 
-              {/* 5. Tombol Send */}
+              {/* Tombol Send */}
               <div className="w-full h-[48px] pt-2">
                 <button
                   type="submit"
-                  className="w-full h-[48px] bg-[#FF623E] hover:bg-[#e04f2c] text-white font-bold text-[15px] tracking-[-0.02em] rounded-full transition-all duration-200 cursor-pointer flex items-center justify-center"
-                  style={{ boxShadow: '4px 4px 4px 0px rgba(255, 255, 255, 0.25) inset' }}
+                  className="w-full h-[48px] bg-[#FF623E] hover:bg-[#e04f2c] text-white font-bold text-[15px] tracking-[-0.02em] rounded-full transition-all duration-200 cursor-pointer flex items-center justify-center border-none outline-none"
+                  style={{ boxShadow: 'inset 4px 4px 4px 0px rgba(255, 255, 255, 0.25)' }}
                 >
                   Send
                 </button>
@@ -262,7 +269,7 @@ const ContactSection = () => {
               <button
                 type="button"
                 onClick={() => setNotificationType(null)}
-                className="w-full h-[48px] bg-[#FF623E] text-white font-bold text-sm rounded-full transition-all duration-200 cursor-pointer"
+                className="w-full h-[48px] bg-[#FF623E] text-white font-bold text-sm rounded-full transition-all duration-200 cursor-pointer border-none outline-none"
               >
                 {notificationType === "success" ? "Back to Home" : "Try Again"}
               </button>

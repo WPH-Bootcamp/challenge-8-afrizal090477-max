@@ -4,10 +4,8 @@ import { faqData } from "../../data/faq";
 import faqCtaImg from "../../../assets/images/consultation.svg"; 
 
 const FAQSection = () => {
-  // Ambil data murni dari faqData
   const { title, subtitle, ctaTitle, ctaSubtitle, questions } = faqData;
 
-  // State untuk membuka FAQ nomor 1 secara default
   const [openId, setOpenId] = useState<number | null>(1);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -37,6 +35,8 @@ const FAQSection = () => {
       className="w-full bg-panel-bg transition-colors duration-300 min-h-[822px] flex flex-col justify-center py-[80px]"
     >
       <Container className="max-w-[1440px] px-6 md:px-12 lg:px-[120px] flex flex-col gap-[48px]">
+        
+        {/* Area Baris Judul Kepala */}
         <div className="w-full flex flex-col md:flex-row justify-between items-start md:items-end gap-6 min-h-[112px]">
           <h2 
             className="text-3xl md:text-4xl lg:text-[44px] font-bold tracking-[-0.02em] text-[#0A0D12] max-w-full lg:h-[112px] leading-[1.1] transition-colors duration-300"
@@ -57,19 +57,22 @@ const FAQSection = () => {
           </p>
         </div>
 
-        <div className="w-full border-t border-zinc-300/20 dark:border-zinc-800/60" />
+        {/* Garis Pembatas Atas */}
+        <div className="w-full border-t border-zinc-300/20 dark:border-[#252B37]" />
         
-        {/* KONTEN FAQ DAN CTA KONSULTASI */}
-        <div className="flex flex-col lg:flex-row gap-[48px] items-start w-full">
-          {/* SISI KIRI: Daftar FAQ */}
-          <div className="w-full lg:w-[798px] min-h-[454px] flex flex-col gap-[28px]">
+        {/* AREA TINGGI RATA AIR */}
+        <div className="flex flex-col lg:flex-row lg:gap-[73px] items-stretch w-full lg:h-[454px]">
+          
+          {/* 🎯 SISI KIRI: Daftar FAQ (Lebar: 798px, Ditambahkan h-full & justify-between agar membagi ruang seimbang) */}
+          <div className="w-full lg:w-[798px] h-full flex flex-col justify-between overflow-hidden">
             {questions.map((item) => {
               const isOpen = item.id === openId;
               
               return (
                 <div 
                   key={item.id} 
-                  className="w-full flex flex-col justify-center pb-[20px] border-b border-zinc-300/20 dark:border-zinc-800/60 min-h-[86px] gap-[16px]"
+                  // Padding dan gap diatur seimbang agar baris pembatas bawah (border-b) terdorong rapi rata air
+                  className="w-full flex flex-col justify-center pb-[16px] border-b border-zinc-300/20 dark:border-zinc-800/60 min-h-[82px] gap-[10px]"
                 >
                   {/* Tombol Pertanyaan */}
                   <button
@@ -86,7 +89,7 @@ const FAQSection = () => {
                     </span>
                   </button>
 
-                  {/* Jawaban */}
+                  {/* Jawaban Accordion */}
                   <div
                     className={`grid transition-all duration-300 ease-in-out overflow-hidden ${
                       isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
@@ -103,14 +106,14 @@ const FAQSection = () => {
             })}
           </div>
 
-          {/* SISI KANAN: CTA KONSULTASI */}
-          <div className="w-full lg:w-[329px] flex justify-center lg:justify-end shrink-0">
-            <div className="bg-[#CC4E32] p-[24px] rounded-[24px] w-full md:w-[329px] h-[453.38px] flex flex-col justify-between gap-[24px] shadow-sm">
+          {/* SISI KANAN: CTA KONSULTASI (Boks Oranye) */}
+          <div className="w-full lg:w-[329px] flex justify-center lg:justify-end shrink-0 mt-8 lg:mt-0 h-full">
+            <div className="bg-[#CC4E32] p-[24px] rounded-[24px] w-full md:w-[329px] h-full flex flex-col justify-between gap-[20px] shadow-sm">
               <div className="w-full md:w-[281px] flex flex-col gap-[4px]">
                 <h3 className="text-2xl md:text-[32px] font-bold tracking-[-0.02em] text-white leading-[1.1] h-[88px] flex items-center">
                   {ctaTitle}
                 </h3>
-                <p className="text-base md:text-[17px] font-semibold text-white/90 leading-normal h-[64px]">
+                <p className="text-base md:text-[17px] font-semibold text-white/90 leading-normal h-[64px] mt-1">
                   {ctaSubtitle}
                 </p>
               </div>
@@ -123,7 +126,15 @@ const FAQSection = () => {
                   loading="lazy"
                 />
               </div>
-              <button className="w-full md:w-[281px] h-[48px] bg-[#000000] hover:bg-zinc-900 text-white font-bold text-sm md:text-[15px] tracking-[-0.02em] rounded-full shadow-md transition-all duration-200 active:scale-[0.98] cursor-pointer shrink-0">
+
+              <button 
+                className="w-full md:w-[281px] h-[48px] font-bold text-sm md:text-[15px] tracking-[-0.02em] rounded-full shadow-md transition-all duration-200 active:scale-[0.98] cursor-pointer shrink-0 border-none outline-none"
+                style={{
+                  backgroundColor: isDarkMode ? '#FFFFFF' : '#000000',
+                  color: isDarkMode ? '#0A0D12' : '#FFFFFF',
+                  boxShadow: !isDarkMode ? 'inset 4px 4px 4px 0px rgba(255, 255, 255, 0.25)' : 'none'
+                }}
+              >
                 Free Consultation
               </button>
             </div>

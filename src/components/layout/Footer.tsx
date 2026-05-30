@@ -28,53 +28,58 @@ const Footer = () => {
   return (
     <footer
       id="footer"
+      // 🎯 SINKRONISASI MAKRO: Tinggi seksi dikunci presisi di min-h-[408px] dengan py-[40px]
       className="w-full bg-panel-bg transition-colors duration-300 min-h-[408px] flex flex-col justify-center py-[40px]"
     >
+      {/* 🎯 SINKRONISASI MAKRO: Padding kiri-kanan desktop mutlak 140px (lg:px-[140px]) dengan gap-[8px] */}
       <Container className="max-w-[1440px] px-6 md:px-12 lg:px-[140px] flex flex-col gap-[8px]">
-        {/* Box utama footer dengan latar belakang, border, dan padding yang disesuaikan untuk kedua mode */}
+        
+        {/* 🎯 BOX UTAMA FOOTER PANEL: lebar 1160px, tinggi desktop h-[328px], radius 24px, padding 40px, gap 60px */}
         <div
           className="w-full max-w-[1160px] md:h-[328px] rounded-[24px] p-6 md:p-[40px] flex flex-col justify-between gap-8 md:gap-[60px] shadow-xs select-none transition-all duration-300"
           style={{
-            backgroundColor: isDarkMode ? "#090B0F" : "#FAFAFA",
-            border: isDarkMode ? "none" : "1px solid #DFDFDF",
+            backgroundColor: isDarkMode ? "#0A0D12" : "#FAFAFA",
+            border: isDarkMode ? "1px solid #252B37" : "1px solid #DFDFDF",
           }}
         >
 
           <div className="w-full md:h-[88px] flex flex-col-reverse md:flex-row justify-between items-start md:items-center gap-4">
-            {/* Judul utama bawah logo saat mobile */}
+            {/* Judul utama bawah logo */}
             <h2
               className="text-2xl md:text-[32px] font-bold tracking-[-0.02em] text-[#0A0D12] max-w-full lg:w-[281px] lg:h-[88px] leading-[1.1] flex items-center transition-colors duration-300"
               style={{ color: isDarkMode ? "#FFFFFF" : "#0A0D12" }}
             >
               LET'S DISCUSS YOUR IDEAS
             </h2>
+            
+            {/* Logo Area */}
             <div className="flex items-center gap-[9.6px] h-[36px]">
               <img
                 src={logoImg}
                 alt="Tech Logo Icon"
-                className="w-[29.58px] h-[32.46px] object-contain dark:invert"
+                className="w-[29.58px] h-[32.46px] object-contain text-brand-orange"
                 loading="lazy"
               />
               <span
-                className="text-[24px] font-semibold text-[#000000] leading-none h-[36px] flex items-center transition-colors duration-300"
-                style={{ color: isDarkMode ? "#FFFFFF" : "#000000" }}
+                className="text-[24px] font-semibold leading-none h-[36px] flex items-center transition-colors duration-300 uppercase"
+                style={{ color: isDarkMode ? "#FFFFFF" : "#0A0D12" }}
               >
                 {footerLogoText || "Your Logo"}
               </span>
             </div>
           </div>
 
-          {/* garis pembatas horizontal dengan penyesuaian warna untuk kedua mode */}
-          <div className="w-full h-0 border-t border-[#DFDFDF] dark:border-zinc-800" />
-          {/*  Navigasi Footer & Ikon Sosial Media */}
+          {/* 🎯 SINKRONISASI MAKRO: Garis pembatas horizontal warna #252B37 di dark mode */}
+          <div className="w-full h-0 border-t border-[#DFDFDF] dark:border-[#252B37]" />
+          
+          {/* Navigasi Footer & Ikon Sosial Media */}
           <div className="w-full md:h-[40px] flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-            {/* Nav menjadi grid grid-cols-1 */}
             <nav className="grid w-full grid-cols-1 gap-2 text-left md:flex md:items-center md:w-auto">
               {footerNavItems.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
-                  className="h-[36px] px-4 py-2 rounded-full text-[15px] font-medium text-[#0A0D12] hover:text-[#FF623E] transition-all flex items-center justify-start md:justify-center cursor-pointer"
+                  className="h-[36px] px-4 py-2 rounded-full text-[15px] font-semibold text-[#0A0D12] hover:text-[#FF623E] transition-all flex items-center justify-start md:justify-center cursor-pointer"
                   style={{ color: isDarkMode ? "#FFFFFF" : "#0A0D12" }}
                 >
                   {item.label}
@@ -82,7 +87,7 @@ const Footer = () => {
               ))}
             </nav>
 
-            {/* Icon sosial media ... */}
+            {/* Icon sosial media (Kunci bg-color sesuai token asli figma) */}
             <div className="flex items-center gap-[16px] h-[40px]">
               {/* 1. Facebook */}
               <a
@@ -91,8 +96,8 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full flex items-center justify-center hover:text-white hover:bg-[#FF623E] hover:border-[#FF623E] transition-all duration-300 cursor-pointer shrink-0"
                 style={{
-                  backgroundColor: isDarkMode ? "#090B0F" : "transparent",
-                  border: isDarkMode ? "none" : "1px solid #DFDFDF",
+                  backgroundColor: isDarkMode ? "#0A0D12" : "transparent",
+                  border: isDarkMode ? "1px solid #252B37" : "1px solid #DFDFDF",
                   color: isDarkMode ? "#FFFFFF" : "#0A0D12",
                 }}
               >
@@ -108,8 +113,8 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full flex items-center justify-center hover:text-white hover:bg-[#FF623E] hover:border-[#FF623E] transition-all duration-300 cursor-pointer shrink-0"
                 style={{
-                  backgroundColor: isDarkMode ? "#090B0F" : "transparent",
-                  border: isDarkMode ? "none" : "1px solid #DFDFDF",
+                  backgroundColor: isDarkMode ? "#0A0D12" : "transparent",
+                  border: isDarkMode ? "1px solid #252B37" : "1px solid #DFDFDF",
                   color: isDarkMode ? "#FFFFFF" : "#0A0D12",
                 }}
               >
@@ -125,8 +130,8 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full flex items-center justify-center hover:text-white hover:bg-[#FF623E] hover:border-[#FF623E] transition-all duration-300 cursor-pointer shrink-0"
                 style={{
-                  backgroundColor: isDarkMode ? "#090B0F" : "transparent",
-                  border: isDarkMode ? "none" : "1px solid #DFDFDF",
+                  backgroundColor: isDarkMode ? "#0A0D12" : "transparent",
+                  border: isDarkMode ? "1px solid #252B37" : "1px solid #DFDFDF",
                   color: isDarkMode ? "#FFFFFF" : "#0A0D12",
                 }}
               >
@@ -142,8 +147,8 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full flex items-center justify-center hover:text-white hover:bg-[#FF623E] hover:border-[#FF623E] transition-all duration-300 cursor-pointer shrink-0"
                 style={{
-                  backgroundColor: isDarkMode ? "#090B0F" : "transparent",
-                  border: isDarkMode ? "none" : "1px solid #DFDFDF",
+                  backgroundColor: isDarkMode ? "#0A0D12" : "transparent",
+                  border: isDarkMode ? "1px solid #252B37" : "1px solid #DFDFDF",
                   color: isDarkMode ? "#FFFFFF" : "#0A0D12",
                 }}
               >

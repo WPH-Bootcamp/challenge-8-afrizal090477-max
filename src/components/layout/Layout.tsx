@@ -11,7 +11,7 @@ const Layout = ({ children }: LayoutProps) => {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    // { 1. Setelah 2 detik, mulai jalankan efek memudar (fade-out)}
+    // 1. Setelah 2 detik, mulai jalankan efek memudar (fade-out)
     const fadeTimeout = setTimeout(() => {
       setFadeOut(true);
     }, 2000);
@@ -28,8 +28,8 @@ const Layout = ({ children }: LayoutProps) => {
   }, []);
 
   return (
-    <div className="relative min-h-screen transition-colors duration-300 bg-panel-bg">
-      {/* Layer Cover Pembuka dengan animasi memudar setelah 2 detik, dan dihapus setelah 2.5 detik untuk efisiensi performa */}
+    <div className="relative min-h-screen overflow-x-hidden transition-colors duration-300 bg-panel-bg">
+      {/* Layer Cover Pembuka dengan animasi memudar */}
       {showCover && (
         <div
           className={`fixed inset-0 z-[9999] flex items-center justify-center bg-[#0f172a] transition-opacity duration-500 select-none pointer-events-none ${
@@ -46,15 +46,18 @@ const Layout = ({ children }: LayoutProps) => {
         </div>
       )}
 
-      {/* Kontainer utama yang membungkus Navbar, Konten, dan Footer dengan transisi untuk efek memudar saat cover hilang */}
-      <div className={`w-full max-w-[1440px] mx-auto transition-all duration-700 ${showCover ? "opacity-0 scale-98" : "opacity-100 scale-100"}`}>
+      {/* 🎯 FIX: Pembungkus luar dibiarkan w-full (tanpa max-w) agar background seksi mengalir penuh se-layar desktop */}
+      <div className={`w-full transition-all duration-700 ${showCover ? "opacity-0 scale-98" : "opacity-100 scale-100"}`}>
+        
+        {/* Navbar internal-nya nanti yang membatasi max-w-1440 */}
         <Navbar />
         
-        {/* konten utama homepage yang akan diisi oleh section-section lain seperti Hero, About, Services, dll. dengan transisi untuk efek memudar saat cover hilang */}
-        <main>
+        {/* Konten Utama (Setiap section di dalamnya aman membentang penuh) */}
+        <main className="w-full">
           {children}
         </main>
 
+        {/* Footer internal-nya nanti yang membatasi max-w-1440 */}
         <Footer />
       </div>
 
