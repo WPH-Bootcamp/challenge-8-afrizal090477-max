@@ -25,19 +25,16 @@ const ServicesSection = () => {
   return (
     <section
       id="services"
-      // 🎯 SINKRONISASI MAKRO: Tinggi seksi dikunci presisi di min-h-[949px]
       className="w-full bg-panel-bg transition-colors duration-300 min-h-[949px] flex flex-col justify-center"
     >
-      {/* 🎯 SINKRONISASI MAKRO: Padding desktop dikunci padding-top/bottom: 80px, padding-left/right: 140px */}
       <Container className="max-w-[1440px] px-6 py-16 md:px-12 lg:px-[140px] lg:py-[80px]">
-        {/* Pembungkus utama dengan judul, deskripsi, dan grid layanan (gap: 64px) */}
+        {/* Pembungkus utama dengan judul, deskripsi, dan grid layanan */}
         <div className="flex flex-col gap-[64px] items-center w-full">
-          
-          {/* Judul dan Deskripsi Layanan (🎯 SINKRONISASI MAKRO: gap-[11px] antara judul & subtitle) */}
+          {/* Judul dan Deskripsi Layanan*/}
           <div className="max-w-[1160px] w-full text-center flex flex-col gap-[11px]">
-            <h2 
+            <h2
               className="text-3xl md:text-4xl lg:text-[44px] font-bold tracking-[-0.02em] text-[#0A0D12] leading-tight transition-colors duration-300"
-              style={{ color: isDarkMode ? '#FFFFFF' : '#0A0D12' }}
+              style={{ color: isDarkMode ? "#FFFFFF" : "#0A0D12" }}
             >
               Smart IT Solutions That Grow With You
             </h2>
@@ -46,31 +43,30 @@ const ServicesSection = () => {
             </p>
           </div>
 
-          {/* Grid card Layanan (🎯 SINKRONISASI MAKRO: Mengunci tinggi area grid h-[626px] & jarak gap vertikal 40px) */}
+          {/* Grid card Layanan */}
           <div className="w-full max-w-[1160px] lg:min-h-[626px] grid gap-x-[20px] gap-y-[40px] grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
               <div
                 key={service.id}
                 className="relative p-6 pt-16 rounded-2xl shadow-[0_4px_25px_rgba(0,0,0,0.015)] transition-all duration-300 hover:shadow-md hover:-translate-y-1 flex flex-col h-auto md:min-h-[182px] group"
-                style={{ 
-                  backgroundColor: isDarkMode ? '#090B0F' : '#FFFFFF',
-                  border: isDarkMode ? 'none' : '1px solid #DEDCDC'
+                style={{
+                  backgroundColor: isDarkMode ? "#090B0F" : "#FFFFFF",
+                  border: isDarkMode ? "none" : "1px solid #DEDCDC",
                 }}
               >
-                
                 <div className="absolute w-20 h-20 transition-transform duration-300 pointer-events-none -top-10 left-6 group-hover:scale-105">
-                  <img 
-                    src={service.icon} 
-                    alt={`${service.title} Icon`} 
-                    className="object-contain w-full h-full" 
+                  <img
+                    src={service.icon}
+                    alt={`${service.title} Icon`}
+                    className="object-contain w-full h-full"
                     loading="lazy"
                   />
                 </div>
 
                 {/* Judul Layanan */}
-                <h3 
+                <h3
                   className="text-lg lg:text-xl font-bold tracking-normal text-[#0A0D12] transition-colors duration-200"
-                  style={{ color: isDarkMode ? '#FFFFFF' : '#0A0D12' }}
+                  style={{ color: isDarkMode ? "#FFFFFF" : "#0A0D12" }}
                 >
                   {service.title}
                 </h3>
@@ -81,7 +77,6 @@ const ServicesSection = () => {
               </div>
             ))}
           </div>
-
         </div>
       </Container>
     </section>

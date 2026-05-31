@@ -28,13 +28,11 @@ const Footer = () => {
   return (
     <footer
       id="footer"
-      // 🎯 SINKRONISASI MAKRO: Tinggi seksi dikunci presisi di min-h-[408px] dengan py-[40px]
       className="w-full bg-panel-bg transition-colors duration-300 min-h-[408px] flex flex-col justify-center py-[40px]"
     >
-      {/* 🎯 SINKRONISASI MAKRO: Padding kiri-kanan desktop mutlak 140px (lg:px-[140px]) dengan gap-[8px] */}
       <Container className="max-w-[1440px] px-6 md:px-12 lg:px-[140px] flex flex-col gap-[8px]">
         
-        {/* 🎯 BOX UTAMA FOOTER PANEL: lebar 1160px, tinggi desktop h-[328px], radius 24px, padding 40px, gap 60px */}
+        {/*BOX UTAMA FOOTER  */}
         <div
           className="w-full max-w-[1160px] md:h-[328px] rounded-[24px] p-6 md:p-[40px] flex flex-col justify-between gap-8 md:gap-[60px] shadow-xs select-none transition-all duration-300"
           style={{
@@ -69,7 +67,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* 🎯 SINKRONISASI MAKRO: Garis pembatas horizontal warna #252B37 di dark mode */}
+          {/* Garis pembatas horizontal*/}
           <div className="w-full h-0 border-t border-[#DFDFDF] dark:border-[#252B37]" />
           
           {/* Navigasi Footer & Ikon Sosial Media */}

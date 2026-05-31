@@ -25,20 +25,16 @@ const OurProcess = () => {
   return (
     <section
       id="process"
-      // 🎯 SINKRONISASI MAKRO: Tinggi seksi dikunci presisi di min-h-[1099px]
       className="w-full bg-panel-bg transition-colors duration-300 min-h-[1099px] flex flex-col justify-center"
     >
-      {/* 🎯 SINKRONISASI MAKRO: Padding desktop dikunci padding-top/bottom: 80px, padding-left/right: 140px */}
       <Container className="max-w-[1440px] px-6 py-16 md:px-12 lg:px-[140px] lg:py-[80px]">
-        
         {/* Pembungkus Konten Utama (gap: 64px) */}
         <div className="flex flex-col gap-[64px] items-center w-full">
-          
-          {/* Header area (🎯 SINKRONISASI MAKRO: gap-[11px] antara judul & subtitle) */}
+          {/* Header area  */}
           <div className="max-w-[1160px] w-full text-center flex flex-col gap-[11px]">
-            <h2 
+            <h2
               className="text-3xl md:text-4xl lg:text-[44px] font-bold tracking-[-0.02em] text-[#0A0D12] leading-tight transition-colors duration-300"
-              style={{ color: isDarkMode ? '#FFFFFF' : '#0A0D12' }}
+              style={{ color: isDarkMode ? "#FFFFFF" : "#0A0D12" }}
             >
               {title}
             </h2>
@@ -50,8 +46,7 @@ const OurProcess = () => {
           {/* Pembungkus Utama Area Timeline */}
           <div className="relative w-full max-w-[1160px] flex flex-col gap-4">
             <div className="absolute left-[24px] md:left-1/2 top-10 bottom-10 w-[1px] bg-zinc-100/30 dark:bg-zinc-100/30 pointer-events-none z-0 md:-translate-x-1/2" />
-            
-            {/* 🎯 SINKRONISASI MAKRO: Jarak antar baris grid steps dikunci pas gap-[16px] (space-y-4) */}
+            {/*Jarak antar baris grid  */}
             <div className="relative z-10 w-full space-y-[16px]">
               {steps.map((step, index) => {
                 const isEven = index % 2 === 1;
@@ -61,18 +56,18 @@ const OurProcess = () => {
                     key={step.id}
                     className="grid grid-cols-[auto_1fr] md:grid-cols-[1fr_auto_1fr] items-center w-full gap-4 md:gap-0"
                   >
-                    <div 
+                    <div
                       className={`w-full max-w-[532px] min-h-[116px] p-6 rounded-[16px] flex items-center justify-between gap-6 transition-all duration-300 hover:shadow-sm select-none group col-start-2 order-2
-                        ${!isEven ? 'md:col-start-1 md:order-1 md:justify-self-end' : 'md:col-start-3 md:order-3 md:justify-self-start'}`}
-                      style={{ 
-                        backgroundColor: isDarkMode ? '#090B0F' : '#FAFAFA',
-                        border: isDarkMode ? 'none' : '1px solid #DEDCDC' 
+                        ${!isEven ? "md:col-start-1 md:order-1 md:justify-self-end" : "md:col-start-3 md:order-3 md:justify-self-start"}`}
+                      style={{
+                        backgroundColor: isDarkMode ? "#090B0F" : "#FAFAFA",
+                        border: isDarkMode ? "none" : "1px solid #DEDCDC",
                       }}
                     >
                       <div className="flex flex-col justify-center text-left">
-                        <h3 
+                        <h3
                           className="text-lg lg:text-xl font-bold text-[#0A0D12] transition-colors duration-300"
-                          style={{ color: isDarkMode ? '#FFFFFF' : '#0A0D12' }}
+                          style={{ color: isDarkMode ? "#FFFFFF" : "#0A0D12" }}
                         >
                           {step.title}
                         </h3>
@@ -81,8 +76,18 @@ const OurProcess = () => {
                         </p>
                       </div>
                       <div className="text-[#717680] shrink-0">
-                        <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-y-[-2px]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                        <svg
+                          className="w-5 h-5 transition-transform duration-300 group-hover:translate-y-[-2px]"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                          />
                         </svg>
                       </div>
                     </div>
@@ -94,15 +99,14 @@ const OurProcess = () => {
                       </div>
                     </div>
                     {/* AREA KOSONG SIMETRIS */}
-                    <div className={`hidden md:block w-full max-w-[532px] ${!isEven ? 'md:col-start-3 md:order-3' : 'md:col-start-1 md:order-1'}`} />
-
+                    <div
+                      className={`hidden md:block w-full max-w-[532px] ${!isEven ? "md:col-start-3 md:order-3" : "md:col-start-1 md:order-1"}`}
+                    />
                   </div>
                 );
               })}
             </div>
-            
           </div>
-
         </div>
       </Container>
     </section>

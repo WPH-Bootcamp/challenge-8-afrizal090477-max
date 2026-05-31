@@ -26,15 +26,13 @@ const PortofolioSection = () => {
   return (
     <section
       id="projects"
-      // 🎯 SINKRONISASI MAKRO: Tinggi seksi dikunci presisi di min-h-[772px]
       className="w-full bg-panel-bg transition-colors duration-300 min-h-[772px] flex flex-col justify-center"
     >
-      {/* 🎯 SINKRONISASI MAKRO: Padding desktop dikunci padding-top/bottom: 80px, padding-left/right: 140px */}
       <Container className="max-w-[1440px] px-6 py-16 md:px-12 lg:px-[140px] lg:py-[80px]">
         {/* Pembungkus utama dengan judul, deskripsi, dan grid proyek (gap: 64px) */}
         <div className="flex flex-col gap-[64px] items-center w-full">
           
-          {/* Judul dan Deskripsi Portofolio (🎯 SINKRONISASI MAKRO: gap-[11px] antara judul & subtitle) */}
+          {/* Judul dan Deskripsi Portofolio */}
           <div className="max-w-[1160px] w-full text-center flex flex-col gap-[11px]">
             <h2 
               className="text-3xl md:text-4xl lg:text-[44px] font-bold tracking-[-0.02em] text-[#0A0D12] leading-tight transition-colors duration-300"
@@ -48,7 +46,7 @@ const PortofolioSection = () => {
             </p>
           </div>
 
-          {/* Grid Portofolio (🎯 SINKRONISASI MAKRO: lebar 1159px, tinggi min desktop 449px, dan gap-[20px]) */}
+          {/* Grid Portofolio */}
           <div className="w-full max-w-[1159px] lg:min-h-[449px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[20px] justify-items-center">
             {projects.map((project: ProjectItem) => (
               <div

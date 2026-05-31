@@ -2,14 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
-/* 🎯 2. DEKLARASI TEMA UTAMA TAILWIND V4 */
+
 :root {
   /* ─── INJEKSI FONT FAMILY QUICKSAND ─── */
   --font-sans: "Quicksand", system-ui, sans-serif;
   --font-display: "Quicksand", system-ui, sans-serif;
   --font-body: "Quicksand", system-ui, sans-serif;
 
-  /* ─── TOKEN WARNA BRAND FIGMA ASSIGNMENT 8 ─── */
   --color-brand-50: #FFF5F2;
   --color-brand-100: #FFE6DE;
   --color-brand-200: #FFCEB8;
@@ -58,7 +57,7 @@
   --color-text-muted: #94a3b8;  /* Slate 400 (Abu-abu terang untuk deskripsi) */
 }
 
-/* 5. Base Styles (Memaksa Seluruh Elemen dan Tombol Patuh Pada Saklar) */
+/* 5. Base Styles */
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -72,7 +71,7 @@
     font-family: "Quicksand", system-ui, sans-serif;
   }
 
-  /* PERBAIKAN UTAMA: Memaksa seluruh tombol mewarisi warna teks utama jika tidak diatur manual */
+
   button, input, select, textarea {
     color: inherit;
     font-family: inherit;
