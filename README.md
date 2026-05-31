@@ -287,9 +287,10 @@ Berdasarkan design Figma, buat sections berikut (sesuaikan dengan design yang di
 3. **Submit Link**
 
 **Format Submission:**
-Aplikasi ini telah berhasil di-deploy ke server produksi secara global
-🔗 [Live Demo Website](
-https://challenge-8-afrizal090477-max.vercel.app)
+
+Nama : [Afrizal]
+Repository : [https://github.com/WPH-Bootcamp/challenge-8-afrizal090477-max]
+🔗 [Live Demo Website](https://challenge-8-afrizal090477-max.vercel.app)
 
 
 ### Checklist Sebelum Submit
