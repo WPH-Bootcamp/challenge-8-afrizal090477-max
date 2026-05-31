@@ -52,14 +52,12 @@ const TestimonialsSection = () => {
   return (
     <section 
       id="testimonials" 
-      // 🎯 SINKRONISASI MAKRO: Tinggi seksi pas min-h-[723px] dengan padding vertikal py-[80px]
       className="w-full bg-panel-bg transition-colors duration-300 min-h-[723px] flex flex-col justify-center py-[80px] overflow-hidden"
     >
       <Container className="max-w-[1440px] px-6 md:px-12 lg:px-[140px]">
-        {/* 🎯 SINKRONISASI MAKRO: gap-[80px] antara header judul ke area track slider */}
         <div className="flex flex-col gap-[80px] items-center w-full">
           
-          {/* Header area (gap: 11px, height: 99px) */}
+          {/* Header area */}
           <div className="w-full max-w-[1160px] text-center flex flex-col gap-[11px] h-[99px] shrink-0">
             <h2 
               className="text-3xl md:text-4xl lg:text-[44px] font-bold tracking-[-0.02em] text-[#0A0D12] h-[56px] flex items-center justify-center transition-colors duration-300"
@@ -74,8 +72,6 @@ const TestimonialsSection = () => {
 
           {/* Area Slider Track */}
           <div className="w-full max-w-[1160px] flex justify-center items-center overflow-visible">
-            
-            {/* Jarak gap horizontal antar card diset ke gap-[20px] sesuai blueprint */}
             <div className="flex flex-col md:flex-row items-center justify-center gap-[20px] w-full md:w-auto">
               {data.map((item, index) => {
                 const isActive = index === activeIndex;
@@ -84,7 +80,6 @@ const TestimonialsSection = () => {
                   <div
                     key={item.id}
                     onClick={() => handleCardClick(item.id)}
-                    // 🎯 SINKRONISASI MAKRO CARD: lebar mutlak desktop 594px, tinggi 292px, radius 16px, padding top/left/right: 24px, bottom: 48px, gap: 24px
                     className={`relative rounded-[16px] px-[24px] pt-[24px] pb-[48px] flex-col justify-between cursor-pointer transition-all duration-500 min-h-[292px] gap-[24px] select-none shrink-0 w-full md:w-[594px]
                       ${isActive 
                         ? "flex scale-100 opacity-100 shadow-xl z-10" 
@@ -92,11 +87,9 @@ const TestimonialsSection = () => {
                       }
                     `}
                     style={{
-                      // 🎯 FIGMA SPEC: Warna background dark mode diubah ke #0A0D12 murni
                       backgroundColor: isDarkMode ? '#0A0D12' : '#FAFAFA',
                       borderWidth: '1px',
                       borderStyle: 'solid',
-                      // 🎯 FIGMA SPEC: Gradasi warna border disesuaikan presisi dari #FF6C37 ke #181D27
                       borderImageSource: isActive 
                         ? (isDarkMode 
                             ? 'linear-gradient(116.18deg, #FF6C37 -22.52%, #181D27 33.35%)' 

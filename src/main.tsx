@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import './index.css' // File CSS utama Tailwind lo
+import './index.css' 
 
 // Tambahkan import ini:
 import '@fontsource/quicksand/300.css';

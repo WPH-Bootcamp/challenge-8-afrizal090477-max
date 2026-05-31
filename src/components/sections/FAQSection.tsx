@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Container from "../ui/Container";
 import { faqData } from "../../data/faq";
-import faqCtaImg from "../../../assets/images/consultation.svg"; 
+import faqCtaImg from "../../../assets/images/consultation.svg";
 
 const FAQSection = () => {
   const { title, subtitle, ctaTitle, ctaSubtitle, questions } = faqData;
@@ -35,12 +35,11 @@ const FAQSection = () => {
       className="w-full bg-panel-bg transition-colors duration-300 min-h-[822px] flex flex-col justify-center py-[80px]"
     >
       <Container className="max-w-[1440px] px-6 md:px-12 lg:px-[120px] flex flex-col gap-[48px]">
-        
         {/* Area Baris Judul Kepala */}
         <div className="w-full flex flex-col md:flex-row justify-between items-start md:items-end gap-6 min-h-[112px]">
-          <h2 
+          <h2
             className="text-3xl md:text-4xl lg:text-[44px] font-bold tracking-[-0.02em] text-[#0A0D12] max-w-full lg:h-[112px] leading-[1.1] transition-colors duration-300"
-            style={{ color: isDarkMode ? '#FFFFFF' : '#0A0D12' }}
+            style={{ color: isDarkMode ? "#FFFFFF" : "#0A0D12" }}
           >
             {title.includes("Here.") ? (
               <>
@@ -59,31 +58,29 @@ const FAQSection = () => {
 
         {/* Garis Pembatas Atas */}
         <div className="w-full border-t border-zinc-300/20 dark:border-[#252B37]" />
-        
+
         {/* AREA TINGGI RATA AIR */}
         <div className="flex flex-col lg:flex-row lg:gap-[73px] items-stretch w-full lg:h-[454px]">
-          
-          {/* 🎯 SISI KIRI: Daftar FAQ (Lebar: 798px, Ditambahkan h-full & justify-between agar membagi ruang seimbang) */}
+          {/* SISI KIRI: Daftar FAQ */}
           <div className="w-full lg:w-[798px] h-full flex flex-col justify-between overflow-hidden">
             {questions.map((item) => {
               const isOpen = item.id === openId;
-              
+
               return (
-                <div 
-                  key={item.id} 
-                  // Padding dan gap diatur seimbang agar baris pembatas bawah (border-b) terdorong rapi rata air
+                <div
+                  key={item.id}
                   className="w-full flex flex-col justify-center pb-[16px] border-b border-zinc-300/20 dark:border-zinc-800/60 min-h-[82px] gap-[10px]"
                 >
                   {/* Tombol Pertanyaan */}
                   <button
                     onClick={() => toggleFaq(item.id)}
                     className="flex justify-between items-center w-full text-left font-bold text-lg lg:text-[20px] hover:text-[#CC4E32] transition-colors duration-200 group h-auto md:h-[36px] cursor-pointer"
-                    style={{ color: isDarkMode ? '#FFFFFF' : '#0A0D12' }}
+                    style={{ color: isDarkMode ? "#FFFFFF" : "#0A0D12" }}
                   >
                     <span>{item.question}</span>
-                    <span 
+                    <span
                       className="flex items-center justify-center w-6 h-6 ml-4 text-2xl font-medium leading-none transition-colors duration-300 select-none shrink-0"
-                      style={{ color: isDarkMode ? '#FFFFFF' : '#0A0D12' }}
+                      style={{ color: isDarkMode ? "#FFFFFF" : "#0A0D12" }}
                     >
                       {isOpen ? "−" : "+"}
                     </span>
@@ -92,7 +89,9 @@ const FAQSection = () => {
                   {/* Jawaban Accordion */}
                   <div
                     className={`grid transition-all duration-300 ease-in-out overflow-hidden ${
-                      isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                      isOpen
+                        ? "grid-rows-[1fr] opacity-100"
+                        : "grid-rows-[0fr] opacity-0"
                     }`}
                   >
                     <div className="overflow-hidden">
@@ -106,7 +105,7 @@ const FAQSection = () => {
             })}
           </div>
 
-          {/* SISI KANAN: CTA KONSULTASI (Boks Oranye) */}
+          {/* SISI KANAN: CTA KONSULTASI ( */}
           <div className="w-full lg:w-[329px] flex justify-center lg:justify-end shrink-0 mt-8 lg:mt-0 h-full">
             <div className="bg-[#CC4E32] p-[24px] rounded-[24px] w-full md:w-[329px] h-full flex flex-col justify-between gap-[20px] shadow-sm">
               <div className="w-full md:w-[281px] flex flex-col gap-[4px]">
@@ -127,19 +126,20 @@ const FAQSection = () => {
                 />
               </div>
 
-              <button 
+              <button
                 className="w-full md:w-[281px] h-[48px] font-bold text-sm md:text-[15px] tracking-[-0.02em] rounded-full shadow-md transition-all duration-200 active:scale-[0.98] cursor-pointer shrink-0 border-none outline-none"
                 style={{
-                  backgroundColor: isDarkMode ? '#FFFFFF' : '#000000',
-                  color: isDarkMode ? '#0A0D12' : '#FFFFFF',
-                  boxShadow: !isDarkMode ? 'inset 4px 4px 4px 0px rgba(255, 255, 255, 0.25)' : 'none'
+                  backgroundColor: isDarkMode ? "#FFFFFF" : "#000000",
+                  color: isDarkMode ? "#0A0D12" : "#FFFFFF",
+                  boxShadow: !isDarkMode
+                    ? "inset 4px 4px 4px 0px rgba(255, 255, 255, 0.25)"
+                    : "none",
                 }}
               >
                 Free Consultation
               </button>
             </div>
           </div>
-
         </div>
       </Container>
     </section>

@@ -6,10 +6,10 @@ import companyLogo from "../../../assets/logos/company.svg";
 import { navItems } from "../../data/navigation";
 
 const Navbar = () => {
-  // 1. State untuk mengontrol buka/tutup menu navigasi mobile (Hamburger)
+  // Hamburger Button
   const [isOpen, setIsOpen] = useState(false);
 
-  // 2. State untuk mengontrol mode tampilan (Default TRUE/Gelap seperti tema utama Figma)
+  // State untuk mengontrol mode tampilan 
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
@@ -21,29 +21,32 @@ const Navbar = () => {
     }
   }, [isDark]);
 
+  // Fungsi helper untuk handle scroll ke contact section
+  const handleScrollToContact = () => {
+    setIsOpen(false); // Tutup menu mobile jika sedang terbuka
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    // 🎯 FIGMA SPEC: h-[84px], border-bottom: 1px, backdrop-filter: blur(40px)
     <header 
       className="sticky top-0 z-50 h-[84px] bg-panel-bg/80 backdrop-blur-[40px] transition-colors duration-300 border-b"
       style={{
         borderColor: isDark ? 'rgba(63, 63, 70, 0.4)' : '#DFDFDF'
       }}
     >
-      {/* 🎯 FIGMA SPEC: max-w: 1440px dengan padding kiri-kanan mutlak 140px di desktop (lg:px-[140px]) */}
       <Container className="max-w-[1440px] px-6 md:px-12 lg:px-[140px] h-full">
-        {/* FLEX UTAMA: justify-content: space-between */}
         <div className="flex items-center justify-between w-full h-full">
           
-          {/* 🎯 LOGO AREA: width: 158.625px, height: 36px, gap: 9.6px */}
           <div className="flex h-9 items-center gap-[9.6px] p-0 rounded-none shrink-0 select-none w-auto">
             <img 
               src={companyLogo} 
               alt="Company Logo" 
-              // Ukuran asset figma: 29.58px x 32.46px
               className="w-[29.58px] h-[32.46px] object-contain text-brand-orange"
             />
             <span 
-              // font-family-body, SemiBold (600), font-size: 24px, line-height: 36px
               className="font-sans text-[24px] font-semibold leading-[36px] tracking-normal uppercase transition-colors duration-300"
               style={{ color: isDark ? '#FFFFFF' : '#0A0D12' }}
             >
@@ -51,13 +54,11 @@ const Navbar = () => {
             </span>
           </div>
 
-          {/* 🎯 NAVIGASI MENU: width: 499px (Desktop max), gap: 12px */}
           <nav className="items-center hidden md:flex gap-[12px] h-9">
             {navItems.map((item, index) => (
               <a
                 key={`${item.label}-${index}`}
                 href={item.href}
-                // SemiBold (600), padding: pt-8 px-16 pb-8, rounded-full
                 className="flex items-center h-9 pt-[8px] pb-[8px] px-[16px] text-sm font-semibold rounded-full transition-all duration-200 hover:text-brand-orange hover:bg-panel-border/20"
                 style={{ color: isDark ? '#FDFDFD' : '#717680' }}
               >
@@ -82,12 +83,12 @@ const Navbar = () => {
               )}
             </button>
 
-            {/* 🎯 TOMBOL LET'S TALK: width: 197px, height: 44px, padding: 8px, background: #FF623E */}
+            {/* LET'S TALK DESKTOP */}
             <Button 
+              onClick={handleScrollToContact}
               size="sm" 
               variant="primary" 
               className="w-[197px] h-[44px] flex items-center justify-center gap-1 p-2 rounded-full bg-[#FF623E] hover:bg-[#ff4f25] text-white text-sm font-semibold tracking-wide transition-all duration-300 cursor-pointer shrink-0"
-              // Inner Shadow dari spesifikasi Figma: X:4, Y:4, Blur:4, Spread:0, #FFFFFF dengan Opacity 25%
               style={{ boxShadow: 'inset 4px 4px 4px 0px rgba(255, 255, 255, 0.25)' }}
             >
               Let's Talk
@@ -144,6 +145,7 @@ const Navbar = () => {
             {/* Tombol Let's Talk Versi Mobile Dropdown */}
             <div className="pt-3">
               <Button 
+                onClick={handleScrollToContact}
                 size="md" 
                 variant="primary" 
                 className="w-full h-[44px] rounded-full bg-[#FF623E] flex items-center justify-center text-white font-bold transition-all duration-300"

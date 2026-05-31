@@ -46,18 +46,15 @@ const Layout = ({ children }: LayoutProps) => {
         </div>
       )}
 
-      {/* 🎯 FIX: Pembungkus luar dibiarkan w-full (tanpa max-w) agar background seksi mengalir penuh se-layar desktop */}
       <div className={`w-full transition-all duration-700 ${showCover ? "opacity-0 scale-98" : "opacity-100 scale-100"}`}>
         
-        {/* Navbar internal-nya nanti yang membatasi max-w-1440 */}
         <Navbar />
         
-        {/* Konten Utama (Setiap section di dalamnya aman membentang penuh) */}
+        {/* Konten Utama */}
         <main className="w-full">
           {children}
         </main>
 
-        {/* Footer internal-nya nanti yang membatasi max-w-1440 */}
         <Footer />
       </div>
 
