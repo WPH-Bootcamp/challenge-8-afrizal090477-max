@@ -29,6 +29,14 @@ const FAQSection = () => {
     setOpenId(openId === id ? null : id);
   };
 
+  // Fungsi helper untuk handle click tombol Free Consultation ke ContactSection
+  const handleScrollToContact = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       id="faq"
@@ -38,7 +46,7 @@ const FAQSection = () => {
         {/* Area Baris Judul Kepala */}
         <div className="w-full flex flex-col md:flex-row justify-between items-start md:items-end gap-6 min-h-[112px]">
           <h2
-            className="text-3xl md:text-4xl lg:text-[44px] font-bold tracking-[-0.02em] text-[#0A0D12] max-w-full lg:h-[112px] leading-[1.1] transition-colors duration-300"
+            className="text-3xl md:text-4xl lg:text-[44px] font-bold tracking-[-0.02em] max-w-full lg:h-[112px] leading-[1.1] transition-colors duration-300"
             style={{ color: isDarkMode ? "#FFFFFF" : "#0A0D12" }}
           >
             {title.includes("Here.") ? (
@@ -105,7 +113,7 @@ const FAQSection = () => {
             })}
           </div>
 
-          {/* SISI KANAN: CTA KONSULTASI ( */}
+          {/* SISI KANAN: CTA KONSULTASI */}
           <div className="w-full lg:w-[329px] flex justify-center lg:justify-end shrink-0 mt-8 lg:mt-0 h-full">
             <div className="bg-[#CC4E32] p-[24px] rounded-[24px] w-full md:w-[329px] h-full flex flex-col justify-between gap-[20px] shadow-sm">
               <div className="w-full md:w-[281px] flex flex-col gap-[4px]">
@@ -126,7 +134,9 @@ const FAQSection = () => {
                 />
               </div>
 
+              {/* BERIKUT ADALAH BUTTON YANG SUDAH DILINK-KAN */}
               <button
+                onClick={handleScrollToContact}
                 className="w-full md:w-[281px] h-[48px] font-bold text-sm md:text-[15px] tracking-[-0.02em] rounded-full shadow-md transition-all duration-200 active:scale-[0.98] cursor-pointer shrink-0 border-none outline-none"
                 style={{
                   backgroundColor: isDarkMode ? "#FFFFFF" : "#000000",
