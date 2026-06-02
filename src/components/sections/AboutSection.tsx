@@ -28,8 +28,9 @@ const AboutSection = () => {
       className="w-full bg-panel-bg transition-colors duration-300 min-h-[598px] flex flex-col justify-center"
     >
       <Container className="max-w-[1440px] px-6 py-16 md:px-12 lg:px-[140px] lg:py-[80px]">
-        {/* Pembungkus utama */}
-        <div className="flex flex-col gap-[64px] items-center w-full">
+        {/* Pembungkus utama (Sudah diperbaiki dari error tag sebelumnya) */}
+        <div className="flex flex-col gap-12 md:gap-[64px] items-center w-full">
+          
           {/* Header dengan judul dan deskripsi */}
           <div className="max-w-[1160px] w-full text-center flex flex-col gap-[11px]">
             <h2
@@ -44,12 +45,12 @@ const AboutSection = () => {
             </p>
           </div>
 
-          {/* Grid Statistik lingkaran */}
-          <div className="w-full max-w-[1160px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-[20px] justify-items-center">
+          {/* Grid Statistik lingkaran (Sekarang 2 kolom di mobile: grid-cols-2) */}
+          <div className="w-full max-w-[1160px] grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-[20px] justify-items-center">
             {stats.map((stat, index) => (
               <div
                 key={`${stat.label}-${index}`}
-                className="w-[275px] h-[275px] rounded-full flex flex-col items-center justify-center p-[16px] gap-[6px] transition-all duration-300 transform hover:scale-[1.03] select-none shadow-sm group"
+                className="w-full max-w-[275px] aspect-square rounded-full flex flex-col items-center justify-center p-4 sm:p-[16px] gap-[4px] sm:gap-[6px] transition-all duration-300 transform hover:scale-[1.03] select-none shadow-sm group"
                 style={{
                   backgroundColor: isDarkMode ? "#0A0D12" : "#FAFAFA",
                   border: isDarkMode
@@ -57,14 +58,14 @@ const AboutSection = () => {
                     : "1px solid #DEDCDC",
                 }}
               >
-                {/* Angka stat */}
-                <span className="text-4xl lg:text-[48px] font-bold tracking-[-0.02em] text-[#FF623E] leading-none">
+                {/* Angka stat (Disesuaikan sizenya di mobile agar tidak offside) */}
+                <span className="text-2xl sm:text-4xl lg:text-[48px] font-bold tracking-[-0.02em] text-[#FF623E] leading-none">
                   {stat.value}
                 </span>
 
-                {/* Label teks */}
+                {/* Label teks (Ukuran font mengecil di mobile menyesuaikan ruang lingkaran) */}
                 <p
-                  className="text-base md:text-lg lg:text-[20px] font-semibold text-center max-w-[243px] leading-snug transition-colors duration-300 px-2"
+                  className="text-[11px] sm:text-base md:text-lg lg:text-[20px] font-semibold text-center max-w-[85%] leading-tight sm:leading-snug transition-colors duration-300 px-1"
                   style={{ color: isDarkMode ? "#FDFDFD" : "#0A0D12" }}
                 >
                   {stat.label}
@@ -72,6 +73,7 @@ const AboutSection = () => {
               </div>
             ))}
           </div>
+
         </div>
       </Container>
     </section>
