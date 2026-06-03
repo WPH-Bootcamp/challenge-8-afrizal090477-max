@@ -3,12 +3,14 @@ import Container from "../ui/Container";
 import { testimonials as originalTestimonials } from "../../data/testimonials";
 import quoteIcon from "../../../assets/icons/kutip.svg";
 
+
+
 const TestimonialsSection = () => {
   const [data, setData] = useState(originalTestimonials);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const activeIndex = 1;
 
-  // 🎯 DETEKSI TEMA: Memantau perubahan class 'dark' di root HTML
+
   useEffect(() => {
     const checkDarkMode = () => {
       const isDark = document.documentElement.classList.contains("dark");
@@ -56,8 +58,6 @@ const TestimonialsSection = () => {
     >
       <Container className="max-w-[1440px] px-6 md:px-12 lg:px-[140px]">
         <div className="flex flex-col gap-[80px] items-center w-full">
-          
-          {/* Header area */}
           <div className="w-full max-w-[1160px] text-center flex flex-col gap-[11px] h-[99px] shrink-0">
             <h2 
               className="text-3xl md:text-4xl lg:text-[44px] font-bold tracking-[-0.02em] text-[#0A0D12] h-[56px] flex items-center justify-center transition-colors duration-300"
@@ -70,7 +70,6 @@ const TestimonialsSection = () => {
             </p>
           </div>
 
-          {/* Area Slider Track */}
           <div className="w-full max-w-[1160px] flex justify-center items-center overflow-visible">
             <div className="flex flex-col md:flex-row items-center justify-center gap-[20px] w-full md:w-auto">
               {data.map((item, index) => {
@@ -98,7 +97,7 @@ const TestimonialsSection = () => {
                       borderImageSlice: 1,
                     }}
                   >
-                    {/* Ikon Kutipan */}
+
                     <div className="absolute -top-[23px] left-[40px] w-[63.33px] h-[46.66px] pointer-events-none">
                       <img 
                         src={quoteIcon} 
@@ -107,7 +106,6 @@ const TestimonialsSection = () => {
                       />
                     </div>
 
-                    {/* Komentar Testimonial */}
                     <div className="flex flex-col gap-[12px] mt-4">
                       <div className="w-[136px] h-[24px] flex items-center justify-center gap-[4px] mx-auto text-[#F3B64C] text-xl select-none leading-none">
                         {[...Array(item.stars)].map((_, i) => (
@@ -124,7 +122,6 @@ const TestimonialsSection = () => {
                       </div>
                     </div>
 
-                    {/* Identitas Partner */}
                     <div className="flex flex-col justify-center mt-2 text-center">
                       <h4 
                         className="text-base font-semibold transition-colors duration-300 md:text-lg"
@@ -139,7 +136,6 @@ const TestimonialsSection = () => {
                       </p>
                     </div>
 
-                    {/* Avatar lingkaran */}
                     <div className="absolute -bottom-[37.5px] left-1/2 -translate-x-1/2 w-[75px] h-[75px]">
                       <img
                         src={item.avatar}
@@ -161,7 +157,6 @@ const TestimonialsSection = () => {
             </div>
           </div>
 
-          {/* Navigasi Titik Bawah */}
           <div className="flex justify-center items-center gap-[6px] mt-8">
             {originalTestimonials.map((item, index) => {
               const isDotActive = data[1].id === item.id;

@@ -4,7 +4,6 @@
 
 
 :root {
-  /* ─── INJEKSI FONT FAMILY QUICKSAND ─── */
   --font-sans: "Quicksand", system-ui, sans-serif;
   --font-display: "Quicksand", system-ui, sans-serif;
   --font-body: "Quicksand", system-ui, sans-serif;
@@ -24,40 +23,34 @@
   --color-textMain: #0A0D12;
   --color-textMuted: #717680;
 
-  /* ─── BORDER RADIUS KUSTOM ─── */
+
   --radius-brand-lg: 16px;
   --radius-brand-xl: 24px;
 
-  /* ─── TYPOGRAPHY CONFIG: DISPLAY HERO (56px) ─── */
+
   --text-display-hero: 56px;
   --text-display-hero--line-height: 1.15;
   --text-display-hero--letter-spacing: -0.02em;
 }
 
-/* 3. Pengaturan Token Desain Global & Tema Terang (Light Mode) */
+
 :root {
-  --color-brand-orange: #f97316; /* Warna Oranye khas Figma */
+  --color-brand-orange: #f97316; 
   
-  /* Token Warna Latar Belakang (Light) */
   --color-panel-bg: #ffffff;
   --color-panel-border: #e2e8f0;
-  
-  /* Token Warna Teks (Light) */
-  --color-text-main: #0f172a;   /* Slate 900 (Gelap kontras di latar putih) */
-  --color-text-muted: #475569;  /* Slate 600 (Abu-abu tenang) */
+  --color-text-main: #0f172a;   
+  --color-text-muted: #475569;  
 }
 
-/* 4. Mengganti @variant dengan Selector Kelas CSS Murni (.dark) */
 .dark {
-  --color-panel-bg: #0f172a;     /* Slate 900 (Latar belakang gelap premium) */
-  --color-panel-border: #1e293b; /* Slate 800 (Garis batas panel samar) */
-  
-  /* Token Warna Teks (Dark) */
-  --color-text-main: #f8fafc;   /* Slate 50 (Putih bersih agar terbaca tajam) */
-  --color-text-muted: #94a3b8;  /* Slate 400 (Abu-abu terang untuk deskripsi) */
+  --color-panel-bg: #0f172a;     
+  --color-panel-border: #1e293b; 
+  --color-text-main: #f8fafc;   
+  --color-text-muted: #94a3b8; 
 }
 
-/* 5. Base Styles */
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -67,7 +60,6 @@
     background-color: var(--color-panel-bg) !important;
     color: var(--color-text-main) !important;
     transition: background-color 0.3s ease, color 0.3s ease;
-    /* Mengunci font global fallback agar seluruh halaman otomatis memancarkan Quicksand */
     font-family: "Quicksand", system-ui, sans-serif;
   }
 
@@ -78,7 +70,6 @@
   }
 }
 
-/* 6. Custom Scrollbar yang Adaptif terhadap Mode Gelap */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -97,7 +88,7 @@
   background: #ea580c;
 }
 
-/* 7. Animasi Marquee Gulir Horizontal Tanpa Henti (Logo Cloud) */
+
 @keyframes marquee {
   from {
     transform: translateX(0);
@@ -112,7 +103,6 @@
   animation: marquee 20s linear infinite;
 }
 
-/* Kelas murni efek animasi fade-in */
 .animate-fadeIn {
   animation: fadeIn 0.3s ease-out forwards;
 }

@@ -7,23 +7,21 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    // ==========================================
-    // GLOBAL CONTAINER CONFIGURATION (Sesuai Figma 1440px)
-    // ==========================================
+  
     container: {
-      center: true, // Auto center (mx-auto)
+      center: true, 
       screens: {
-        sm: '100%',     // Full width di HP
-        md: '100%',     // Full width di Tablet kecil
-        lg: '100%',     // Full width di Tablet gede / Laptop kecil
-        xl: '1440px',   // Mengunci lebar maksimal persis sesuai Figma lo di layar lebar
+        sm: '100%',    
+        md: '100%',     
+        lg: '100%',     
+        xl: '1440px',   
         '2xl': '1440px',
       },
       padding: {
-        DEFAULT: '1rem',   // Padding 16px kiri-kanan di layar HP (px-4)
-        sm: '2rem',        // Padding 32px kiri-kanan di layar Tablet (px-8)
-        lg: '4rem',        // Padding 64px kiri-kanan di layar Desktop/Laptop (px-16)
-        xl: '5rem',        // Padding 80px kiri-kanan di monitor ultra-wide (px-20)
+        DEFAULT: '1rem',   
+        sm: '2rem',        
+        lg: '4rem',        
+        xl: '5rem',       
       },
     },
 

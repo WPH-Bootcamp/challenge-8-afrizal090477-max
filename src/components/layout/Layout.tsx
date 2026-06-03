@@ -11,12 +11,10 @@ const Layout = ({ children }: LayoutProps) => {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    // 1. Setelah 2 detik, mulai jalankan efek memudar (fade-out)
     const fadeTimeout = setTimeout(() => {
       setFadeOut(true);
     }, 2000);
 
-    // 2. Setelah 2.5 detik, hapus total cover dari memori DOM browser
     const removeTimeout = setTimeout(() => {
       setShowCover(false);
     }, 2500);
@@ -29,7 +27,6 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <div className="relative min-h-screen overflow-x-hidden transition-colors duration-300 bg-panel-bg">
-      {/* Layer Cover Pembuka dengan animasi memudar */}
       {showCover && (
         <div
           className={`fixed inset-0 z-[9999] flex items-center justify-center bg-[#0f172a] transition-opacity duration-500 select-none pointer-events-none ${
@@ -49,8 +46,6 @@ const Layout = ({ children }: LayoutProps) => {
       <div className={`w-full transition-all duration-700 ${showCover ? "opacity-0 scale-98" : "opacity-100 scale-100"}`}>
         
         <Navbar />
-        
-        {/* Konten Utama */}
         <main className="w-full">
           {children}
         </main>
