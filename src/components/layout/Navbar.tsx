@@ -5,11 +5,10 @@ import { Menu, X, Sun, Moon } from "lucide-react";
 import companyLogo from "../../../assets/logos/company.svg";
 import { navItems } from "../../data/navigation";
 
-const Navbar = () => {
-  // Hamburger Button
-  const [isOpen, setIsOpen] = useState(false);
 
-  // State untuk mengontrol mode tampilan 
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
@@ -21,9 +20,9 @@ const Navbar = () => {
     }
   }, [isDark]);
 
-  // Fungsi helper untuk handle scroll ke contact section
+
   const handleScrollToContact = () => {
-    setIsOpen(false); // Tutup menu mobile jika sedang terbuka
+    setIsOpen(false); 
     const contactSection = document.getElementById("contact");
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: "smooth" });
@@ -67,9 +66,7 @@ const Navbar = () => {
             ))}
           </nav>
 
-          {/* INTERAKSI KANAN (Desktop) */}
           <div className="items-center hidden gap-4 md:flex h-9">
-            {/* Tombol Sun/Moon Toggle */}
             <button
               onClick={() => setIsDark(!isDark)}
               className="flex items-center justify-center text-sm transition-all duration-200 border rounded-full cursor-pointer h-9 w-9 border-panel-border bg-panel-bg hover:bg-panel-border/30"
@@ -83,7 +80,6 @@ const Navbar = () => {
               )}
             </button>
 
-            {/* LET'S TALK DESKTOP */}
             <Button 
               onClick={handleScrollToContact}
               size="sm" 
@@ -95,9 +91,7 @@ const Navbar = () => {
             </Button>
           </div>
 
-          {/* Interaksi Kanan Mobile (Hamburger Menu + Light/Dark Mode Switch) */}
           <div className="flex items-center gap-3 md:hidden">
-            {/* Tombol Sun/Moon Mobile */}
             <button
               onClick={() => setIsDark(!isDark)}
               className="flex items-center justify-center border rounded-full cursor-pointer h-9 w-9 border-panel-border bg-panel-bg"
@@ -106,7 +100,6 @@ const Navbar = () => {
               {isDark ? <Sun className="w-4 h-4 text-amber-500" /> : <Moon className="w-4 h-4 text-slate-700" />}
             </button>
             
-            {/* Tombol Hamburger Mobile */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 bg-transparent border-none rounded-lg outline-none cursor-pointer"
@@ -120,7 +113,6 @@ const Navbar = () => {
         </div>
       </Container>
       
-      {/* Menu Dropdown Mobile Responsive */}
       {isOpen && (
         <div 
           className="md:hidden absolute top-[84px] left-4 right-4 z-50 rounded-2xl p-6 shadow-xl w-[calc(100%-32px)] mx-auto h-auto transition-all duration-300"
@@ -142,7 +134,6 @@ const Navbar = () => {
               </a>
             ))}
             
-            {/* Tombol Let's Talk Versi Mobile Dropdown */}
             <div className="pt-3">
               <Button 
                 onClick={handleScrollToContact}

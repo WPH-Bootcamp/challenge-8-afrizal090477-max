@@ -28,9 +28,7 @@ const OurProcess = () => {
       className="w-full bg-panel-bg transition-colors duration-300 min-h-[1099px] flex flex-col justify-center"
     >
       <Container className="max-w-[1440px] px-6 py-16 md:px-12 lg:px-[140px] lg:py-[80px]">
-        {/* Pembungkus Konten Utama (gap: 64px) */}
         <div className="flex flex-col gap-[64px] items-center w-full">
-          {/* Header area  */}
           <div className="max-w-[1160px] w-full text-center flex flex-col gap-[11px]">
             <h2
               className="text-3xl md:text-4xl lg:text-[44px] font-bold tracking-[-0.02em] text-[#0A0D12] leading-tight transition-colors duration-300"
@@ -43,10 +41,8 @@ const OurProcess = () => {
             </p>
           </div>
 
-          {/* Pembungkus Utama Area Timeline */}
           <div className="relative w-full max-w-[1160px] flex flex-col gap-4">
             <div className="absolute left-[24px] md:left-1/2 top-10 bottom-10 w-[1px] bg-zinc-100/30 dark:bg-zinc-100/30 pointer-events-none z-0 md:-translate-x-1/2" />
-            {/*Jarak antar baris grid  */}
             <div className="relative z-10 w-full space-y-[16px]">
               {steps.map((step, index) => {
                 const isEven = index % 2 === 1;
@@ -92,13 +88,12 @@ const OurProcess = () => {
                       </div>
                     </div>
 
-                    {/* LINGKARAN PENANDA LANGKAH */}
                     <div className="z-20 flex items-center justify-center order-1 col-start-1 md:px-6 shrink-0 md:col-start-2 md:order-2">
                       <div className="h-12 w-12 rounded-full bg-[#FF623E] text-white font-bold text-base flex items-center justify-center shadow-md select-none">
                         {step.id}
                       </div>
                     </div>
-                    {/* AREA KOSONG SIMETRIS */}
+
                     <div
                       className={`hidden md:block w-full max-w-[532px] ${!isEven ? "md:col-start-3 md:order-3" : "md:col-start-1 md:order-1"}`}
                     />

@@ -8,7 +8,7 @@ const Footer = () => {
   const { footerLogoText, copyright, social } = companyInfo;
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  // Memantau perubahan class 'dark' di root HTML
+
   useEffect(() => {
     const checkDarkMode = () => {
       const isDark = document.documentElement.classList.contains("dark");
@@ -31,8 +31,6 @@ const Footer = () => {
       className="w-full bg-panel-bg transition-colors duration-300 min-h-[408px] flex flex-col justify-center py-[40px]"
     >
       <Container className="max-w-[1440px] px-6 md:px-12 lg:px-[140px] flex flex-col gap-[8px]">
-        
-        {/*BOX UTAMA FOOTER  */}
         <div
           className="w-full max-w-[1160px] md:h-[328px] rounded-[24px] p-6 md:p-[40px] flex flex-col justify-between gap-8 md:gap-[60px] shadow-xs select-none transition-all duration-300"
           style={{
@@ -42,7 +40,6 @@ const Footer = () => {
         >
 
           <div className="w-full md:h-[88px] flex flex-col-reverse md:flex-row justify-between items-start md:items-center gap-4">
-            {/* Judul utama bawah logo */}
             <h2
               className="text-2xl md:text-[32px] font-bold tracking-[-0.02em] text-[#0A0D12] max-w-full lg:w-[281px] lg:h-[88px] leading-[1.1] flex items-center transition-colors duration-300"
               style={{ color: isDarkMode ? "#FFFFFF" : "#0A0D12" }}
@@ -50,7 +47,6 @@ const Footer = () => {
               LET'S DISCUSS YOUR IDEAS
             </h2>
             
-            {/* Logo Area */}
             <div className="flex items-center gap-[9.6px] h-[36px]">
               <img
                 src={logoImg}
@@ -67,10 +63,8 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Garis pembatas horizontal*/}
           <div className="w-full h-0 border-t border-[#DFDFDF] dark:border-[#252B37]" />
           
-          {/* Navigasi Footer & Ikon Sosial Media */}
           <div className="w-full md:h-[40px] flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
             <nav className="grid w-full grid-cols-1 gap-2 text-left md:flex md:items-center md:w-auto">
               {footerNavItems.map((item) => (
@@ -85,9 +79,7 @@ const Footer = () => {
               ))}
             </nav>
 
-            {/* Icon sosial media (Kunci bg-color sesuai token asli figma) */}
             <div className="flex items-center gap-[16px] h-[40px]">
-              {/* 1. Facebook */}
               <a
                 href={social.facebook}
                 target="_blank"
@@ -104,7 +96,6 @@ const Footer = () => {
                 </svg>
               </a>
 
-              {/* 2. Instagram */}
               <a
                 href={social.instagram || "#"}
                 target="_blank"
@@ -121,7 +112,6 @@ const Footer = () => {
                 </svg>
               </a>
 
-              {/* 3. LinkedIn */}
               <a
                 href={social.linkedin}
                 target="_blank"
@@ -138,7 +128,6 @@ const Footer = () => {
                 </svg>
               </a>
 
-              {/* 4. TikTok */}
               <a
                 href={social.tiktok || "#"}
                 target="_blank"
@@ -158,7 +147,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Copyright */}
         <div className="flex items-center justify-center w-full gap-2 mt-4 select-none">
           <p className="text-[11px] text-zinc-400 dark:text-zinc-600 font-medium tracking-normal text-center">
             {copyright}

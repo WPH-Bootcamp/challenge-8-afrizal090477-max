@@ -23,7 +23,7 @@ const HeroSection = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Fungsi untuk handle click tombol Hero
+
   const handleScrollToContact = () => {
     const contactSection = document.getElementById("contact");
     if (contactSection) {
@@ -37,12 +37,10 @@ const HeroSection = () => {
       className="overflow-hidden min-h-[747px] py-16 lg:py-0 relative transition-colors duration-300 bg-panel-bg w-full flex items-center"
     >
       <Container className="max-w-[1440px] w-full px-6 md:px-12 lg:px-[140px] relative">
-        {/* Konten Utama */}
         <div className="flex flex-col lg:flex-row justify-between items-center relative z-10 w-full min-h-[747px]">
           <div className="text-center lg:text-left flex flex-col gap-[40px] z-20 w-full lg:w-[653px] shrink-0 pt-10 lg:pt-0">
-            {/* Pembungkus Judul & Subtitle */}
+
             <div className="w-full flex flex-col gap-[8px]">
-              {/* Judul Utama */}
               <h1
                 className="text-4xl sm:text-5xl lg:text-[56px] font-bold tracking-[-0.02em] leading-[1.15] whitespace-normal transition-colors duration-300"
                 style={{ color: isDarkMode ? "#FFFFFF" : "#0A0D12" }}
@@ -50,15 +48,13 @@ const HeroSection = () => {
                 Your Tech Partner for <br className="hidden xl:block" />
                 <span className="text-[#FF623E]">Smarter Growth</span>
               </h1>
-
-              {/* Deskripsi Subtitle */}
               <p className="text-lg lg:text-[20px] font-semibold leading-relaxed text-[#717680] dark:text-zinc-400 transition-colors duration-300">
                 We deliver tailored IT solutions to help you scale with speed
                 and confidence.
               </p>
             </div>
 
-            {/* BUTTON HERO LET'S TALK  */}
+
             <div className="flex flex-wrap justify-center lg:justify-start">
               <Button
                 onClick={handleScrollToContact}

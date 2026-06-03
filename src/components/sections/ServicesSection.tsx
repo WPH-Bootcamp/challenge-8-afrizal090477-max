@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import Container from "../ui/Container";
 import { services } from "../../data/service";
 
+
 const ServicesSection = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  // DETEKSI TEMA: Memantau perubahan class 'dark' di root HTML
+
   useEffect(() => {
     const checkDarkMode = () => {
       const isDark = document.documentElement.classList.contains("dark");
@@ -28,9 +29,7 @@ const ServicesSection = () => {
       className="w-full bg-panel-bg transition-colors duration-300 min-h-[949px] flex flex-col justify-center"
     >
       <Container className="max-w-[1440px] px-6 py-16 md:px-12 lg:px-[140px] lg:py-[80px]">
-        {/* Pembungkus utama dengan judul, deskripsi, dan grid layanan */}
         <div className="flex flex-col gap-[64px] items-center w-full">
-          {/* Judul dan Deskripsi Layanan*/}
           <div className="max-w-[1160px] w-full text-center flex flex-col gap-[11px]">
             <h2
               className="text-3xl md:text-4xl lg:text-[44px] font-bold tracking-[-0.02em] text-[#0A0D12] leading-tight transition-colors duration-300"
@@ -43,7 +42,6 @@ const ServicesSection = () => {
             </p>
           </div>
 
-          {/* Grid card Layanan */}
           <div className="w-full max-w-[1160px] lg:min-h-[626px] grid gap-x-[20px] gap-y-[40px] grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
               <div
@@ -63,14 +61,12 @@ const ServicesSection = () => {
                   />
                 </div>
 
-                {/* Judul Layanan */}
                 <h3
                   className="text-lg lg:text-xl font-bold tracking-normal text-[#0A0D12] transition-colors duration-200"
                   style={{ color: isDarkMode ? "#FFFFFF" : "#0A0D12" }}
                 >
                   {service.title}
                 </h3>
-                {/* Deskripsi Layanan */}
                 <p className="mt-2 text-sm lg:text-[15px] font-medium leading-relaxed text-[#717680] dark:text-zinc-400 flex-grow">
                   {service.desc}
                 </p>

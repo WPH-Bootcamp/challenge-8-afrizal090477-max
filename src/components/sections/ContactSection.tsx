@@ -4,24 +4,25 @@ import { contactData } from "../../data/contact";
 import successIcon from "../../../assets/icons/Message-send.svg";
 import failedIcon from "../../../assets/icons/Message-failed.svg";
 
+
+
 const ContactSection = () => {
-  // Ambil data murni dari contactData
   const { title, subtitle, serviceOptions } = contactData;
 
-  // State untuk form fields (Controlled Input)
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  // State checkbox
+
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [servicesError, setServicesError] = useState(false);
 
-  // State Notifikasi Pop-up
+
   const [notificationType, setNotificationType] = useState<"success" | "failed" | null>(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  // Memantau perubahan class 'dark' di root HTML
+
   useEffect(() => {
     const checkDarkMode = () => {
       const isDark = document.documentElement.classList.contains("dark");
@@ -50,25 +51,22 @@ const ContactSection = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Cek validasi minimal memilih 1 checkbox service
-    const hasSelectedService = selectedServices.length > 0;
 
+    const hasSelectedService = selectedServices.length > 0;
     if (!hasSelectedService) {
       setServicesError(true);
       setNotificationType("failed");
       return;
     }
 
-    // Ambil kondisi simulasi kata 'error' atau 'fail' pada input email
+
     const isSimulatedError =
       email.toLowerCase().includes("error") ||
       email.toLowerCase().includes("fail");
 
-    // Pop-up GAGAL jika mengandung teks error/fail
     if (isSimulatedError) {
       setNotificationType("failed");
     } else {
-      // Jika semua data diisi dengan benar dan aman, pop-up SUKSES
       setNotificationType("success");
       setName("");
       setEmail("");
@@ -83,7 +81,6 @@ const ContactSection = () => {
       id="contact"
       className="w-full bg-panel-bg transition-colors duration-300 min-h-[956px] flex flex-col justify-center py-[80px]"
     >
-      {/* Dynamic Style untuk Browser Autofill Antarmuka */}
       <style dangerouslySetInnerHTML={{__html: `
         input:-webkit-autofill,
         input:-webkit-autofill:hover, 
@@ -98,9 +95,7 @@ const ContactSection = () => {
       `}} />
 
       <Container className="max-w-[1440px] px-6 md:px-12 lg:px-[140px]">
-        {/* Pembungkus Utama Kontainer Form */}
         <div className="flex flex-col gap-[48px] items-center w-full max-w-[720px] mx-auto lg:h-[796px]">
-          {/* Judul dan Deskripsi Kontak */}
           <div className="w-full text-center flex flex-col gap-4 h-[104px] shrink-0">
             <h2
               className="text-3xl md:text-4xl lg:text-[44px] font-bold tracking-[-0.02em] leading-none transition-colors duration-300"
@@ -113,13 +108,11 @@ const ContactSection = () => {
             </p>
           </div>
 
-          {/* Formulir utama dengan input fields */}
           <div className="w-full min-h-[644px] flex flex-col gap-[40px]">
             <form
               onSubmit={handleSubmit}
               className="flex flex-col gap-[20px] w-full min-h-[556px]"
             >
-              {/* Name Input Field */}
               <div className="w-full h-auto md:h-[82px] flex flex-col gap-[6px]">
                 <label
                   className="text-sm font-bold h-[28px] flex items-center transition-colors duration-300"
@@ -142,7 +135,6 @@ const ContactSection = () => {
                 />
               </div>
 
-              {/* Email Input Field */}
               <div className="w-full h-auto md:h-[82px] flex flex-col gap-[6px]">
                 <label
                   className="text-sm font-bold h-[28px] flex items-center transition-colors duration-300"
@@ -165,7 +157,6 @@ const ContactSection = () => {
                 />
               </div>
 
-              {/* MESSAGE TEXTAREA */}
               <div className="w-full h-auto md:h-[168px] flex flex-col gap-[6px]">
                 <label
                   className="text-sm font-bold h-[28px] flex items-center transition-colors duration-300"
@@ -187,7 +178,6 @@ const ContactSection = () => {
                 />
               </div>
 
-              {/* Pilihan Services Checkbox */}
               <div className="w-full h-auto md:h-[164px] flex flex-col gap-[14px]">
                 <div className="flex justify-between items-center h-[28px]">
                   <label
@@ -269,7 +259,6 @@ const ContactSection = () => {
                 </div>
               </div>
 
-              {/* Tombol Send */}
               <div className="w-full h-[48px] pt-2">
                 <button
                   type="submit"
@@ -285,7 +274,6 @@ const ContactSection = () => {
           </div>
         </div>
 
-        {/* POP-UP NOTIFIKASI */}
         {notificationType !== null && (
           <div
             className="fixed inset-0 flex items-center justify-center p-4 transition-opacity duration-300 bg-zinc-950/70 "

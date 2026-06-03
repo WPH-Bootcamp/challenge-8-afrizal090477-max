@@ -2,8 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css' 
-
-// Tambahkan import ini:
 import '@fontsource/quicksand/300.css';
 import '@fontsource/quicksand/400.css';
 import '@fontsource/quicksand/500.css';

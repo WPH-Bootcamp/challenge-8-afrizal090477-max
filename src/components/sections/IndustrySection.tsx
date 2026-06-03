@@ -33,7 +33,6 @@ const IndustrySection = () => {
       className="w-full bg-panel-bg transition-colors duration-300 min-h-[758px] flex flex-col justify-center"
     >
       <Container className="max-w-[1440px] px-6 py-16 md:px-12 lg:px-[140px] lg:py-[80px]">
-        {/* Pembungkus Konten Utama  */}
         <div className="flex flex-col gap-[64px] w-full">
           <div className="max-w-[1160px] w-full flex flex-col gap-[11px]">
             <h2
@@ -48,7 +47,6 @@ const IndustrySection = () => {
           </div>
 
           <div className="w-full max-w-[1160px] flex flex-col md:flex-row gap-[64px] items-start lg:min-h-[435px]">
-            {/* Daftar Industri */}
             <div className="w-full md:w-[256px] md:min-h-[150px] flex flex-col gap-[24px] shrink-0">
               {industries.map((item) => {
                 const isActive = item.id === activeTab;
@@ -71,8 +69,6 @@ const IndustrySection = () => {
                             : "#535862",
                       }}
                     />
-
-                    {/* Teks Nama Industri */}
                     <span
                       className="transition-colors duration-300"
                       style={{
@@ -92,9 +88,8 @@ const IndustrySection = () => {
               })}
             </div>
 
-            {/* Konten Visual & Deskripsi */}
             <div className="w-full md:w-[840px] md:h-[435px] flex flex-col gap-[20px] shrink-0">
-              {/* Box Deskripsi Teks */}
+
               <div className="w-full md:h-[64px] flex items-start">
                 <p
                   className="text-base md:text-[18px] font-medium leading-relaxed transition-colors duration-300 text-left"
@@ -104,7 +99,6 @@ const IndustrySection = () => {
                 </p>
               </div>
 
-              {/* Box Image */}
               <div
                 className="w-full md:w-[840px] md:h-[351px] rounded-[24px] overflow-hidden shadow-sm shrink-0"
                 style={{
