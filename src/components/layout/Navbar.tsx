@@ -5,8 +5,6 @@ import { Menu, X, Sun, Moon } from "lucide-react";
 import companyLogo from "../../../assets/logos/company.svg";
 import { navItems } from "../../data/navigation";
 
-
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDark, setIsDark] = useState(true);
@@ -19,7 +17,6 @@ const Navbar = () => {
       root.classList.remove("dark");
     }
   }, [isDark]);
-
 
   const handleScrollToContact = () => {
     setIsOpen(false); 
@@ -38,18 +35,17 @@ const Navbar = () => {
     >
       <Container className="max-w-[1440px] px-6 md:px-12 lg:px-[140px] h-full">
         <div className="flex items-center justify-between w-full h-full">
-          
           <div className="flex h-9 items-center gap-[9.6px] p-0 rounded-none shrink-0 select-none w-auto">
             <img 
               src={companyLogo} 
               alt="Company Logo" 
-              className="w-[29.58px] h-[32.46px] object-contain text-brand-orange"
+              className="w-[26.3px] h-[28.85px] object-contain text-brand-orange"
             />
             <span 
-              className="font-sans text-[24px] font-semibold leading-[36px] tracking-normal uppercase transition-colors duration-300"
+              className="font-sans text-[21.33px] font-semibold leading-8 tracking-normal uppercase transition-colors duration-300"
               style={{ color: isDark ? '#FFFFFF' : '#0A0D12' }}
             >
-              Tech Logo
+              Your Logo
             </span>
           </div>
 
@@ -106,7 +102,7 @@ const Navbar = () => {
               style={{ color: isDark ? '#FFFFFF' : '#0A0D12' }}
               aria-label="Toggle Menu"
             >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              <Menu className="w-6 h-6" />
             </button>
           </div>
 
@@ -115,37 +111,65 @@ const Navbar = () => {
       
       {isOpen && (
         <div 
-          className="md:hidden absolute top-[84px] left-4 right-4 z-50 rounded-2xl p-6 shadow-xl w-[calc(100%-32px)] mx-auto h-auto transition-all duration-300"
+          className="fixed top-0 left-0 z-50 w-full transition-all duration-300 md:hidden h-dvh"
           style={{
-            backgroundColor: isDark ? '#090B0F' : '#FFFFFF',
-            border: isDark ? 'none' : '1px solid #DFDFDF'
+            backgroundColor: '#000000',
           }}
         >
-          <nav className="flex flex-col space-y-3 text-base font-semibold">
-            {navItems.map((item, index) => (
-              <a
-                key={`mobile-${item.label}-${index}`}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className="py-1 transition-colors duration-200 hover:text-brand-orange"
-                style={{ color: isDark ? '#FFFFFF' : '#717680' }}
-              >
-                {item.label === "Testimonials" && index === 3 ? "Reviews" : item.label}
-              </a>
-            ))}
-            
-            <div className="pt-3">
-              <Button 
-                onClick={handleScrollToContact}
-                size="md" 
-                variant="primary" 
-                className="w-full h-[44px] rounded-full bg-[#FF623E] flex items-center justify-center text-white font-bold transition-all duration-300"
-                style={{ boxShadow: 'inset 4px 4px 4px 0px rgba(255, 255, 255, 0.25)' }}
-              >
-                Let's Talk
-              </Button>
+          <div 
+            className="flex items-center justify-between w-full h-16 px-4 border-b"
+            style={{ borderColor: 'rgba(63, 63, 70, 0.4)' }}
+          >
+            <div className="flex items-center gap-[8.53px] h-8 select-none">
+              <img 
+                src={companyLogo} 
+                alt="Company Logo" 
+                className="w-[26.3px] h-[28.85px] object-contain text-brand-orange"
+              />
+              <span className="font-sans text-[21.33px] font-semibold leading-8 uppercase text-white">
+                Your Logo
+              </span>
             </div>
-          </nav>
+            
+            <button
+              onClick={() => setIsOpen(false)}
+              className="flex items-center justify-center w-6 h-6 p-2 text-white bg-transparent border-none rounded-lg outline-none cursor-pointer"
+              aria-label="Close Menu"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
+
+          <div className="absolute top-16 left-4 w-[calc(100%-32px)] max-w-[361px] flex flex-col gap-3 pt-3">
+            
+            {navItems.map((item, index) => {
+              let displayLabel = item.label;
+              if (item.label === "Projects") displayLabel = "Porfolio";
+              if (item.label === "Reviews") displayLabel = "Testimonials";
+
+              return (
+                <a
+                  key={`mobile-${item.label}-${index}`}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className="w-full h-9 py-2 text-sm font-semibold tracking-wide text-[#FDFDFD] transition-colors duration-200 hover:text-brand-orange flex items-center"
+                >
+                  {displayLabel}
+                </a>
+              );
+            })}
+              
+            <Button 
+              onClick={handleScrollToContact}
+              size="md" 
+              variant="primary" 
+              className="w-full h-[44px] p-2 gap-1 rounded-full bg-[#FF623E] hover:bg-[#ff4f25] flex items-center justify-center text-white text-sm font-bold transition-all duration-300 cursor-pointer shrink-0"
+              style={{ boxShadow: '4px 4px 4px 0px rgba(255, 255, 255, 0.25) inset' }}
+            >
+              Let’s Talk
+            </Button>
+
+          </div>
         </div>
       )}
     </header>
